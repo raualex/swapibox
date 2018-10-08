@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-
 import Nav from '../Nav';
 import CardContainer from '../CardContainer';
+import Intro from '../Intro';
 
 import './App.css';
 
@@ -14,9 +14,17 @@ class App extends Component {
       
     }
   }
+
+  
+
   render() {
     return (
-      <div>hello</div>
+      <div>
+        <h1>SWAPIbox</h1>
+        <Nav />
+        <Intro />
+        <CardContainer />
+      </div>
     );
   }
 }

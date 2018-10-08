@@ -1,22 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
-import App from '.';
+import Intro from '.';
 
-describe('App', () => {
+describe('Intro', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<App />);
+    wrapper = shallow(<Intro />);
   });
 
 
   it('matches the snapshot', () => { 
     expect(wrapper).toMatchSnapshot()
   });
-
-  it('renders nav and card container children components', () => {
-    
-  })
 
 });
