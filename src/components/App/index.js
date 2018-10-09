@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import Nav from '../Nav';
 import CardContainer from '../CardContainer';
+import Header from '../Header';
 import Intro from '../Intro';
+
+import 'react-star-wars-crawl/lib/index.css'
 
 import './App.css';
 
@@ -35,10 +38,10 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h1 className="title">SWAPIbox</h1>
+        <Header />
         <Nav />
         <Intro />
-        <CardContainer />
+        {/* <CardContainer /> */}
       </div>
     );
   }

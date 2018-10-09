@@ -2,12 +2,3 @@ body {
   background-image: url('../Data/assets/stars-in-space-moving-fast-background_v1njcikee__F0000.png');
 }
 
-.title {
-  align-items: center;
-  color: #FCE852;
-  display: flex;
-  font-size: 4em;
-  height: 60px;
-  justify-content: center;
-  padding: 20px;
-}
