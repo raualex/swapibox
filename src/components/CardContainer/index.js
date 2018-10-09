@@ -3,7 +3,7 @@ import React from 'react';
 const CardContainer = ({ props }) => {
   
   return (
-    <div>
+    <div className="card-container">
       Card
     </div>
   )

@@ -13,11 +13,11 @@ class Nav extends Component {
 
   render() {
     return (
-      <div>
-        <button>People</button>
-        <button>Planets</button>
-        <button>Vehicles</button>
-        <button>Favorites</button>
+      <div className="button-container">
+        <button className="people-btn">People</button>
+        <button className="planets-btn">Planets</button>
+        <button className="vehicles-btn">Vehicles</button>
+        <button className="favorites-btn">Favorites</button>
       </div>
     )
   }

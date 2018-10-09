@@ -1,0 +1,20 @@
+.button-container {
+  align-items: center;
+  background-color: #000000;
+  border: solid 4px #FCE852;
+  display: flex;
+  height: 100px;
+  justify-content: space-around;
+}
+
+.favorites-btn,
+.people-btn,
+.planets-btn,
+.vehicles-btn {
+  background-color: #000000;
+  border: solid 4px #FCE852;
+  color: #FCE852;
+  font-size: 1.25em;
+  height: 50px;
+  width: 140px;
+}
