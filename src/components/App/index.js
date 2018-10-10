@@ -3,6 +3,7 @@ import Nav from '../Nav';
 import CardContainer from '../CardContainer';
 import Header from '../Header';
 import Intro from '../Intro';
+import StarWarsRepo from '../Data/helper'
 
 import 'react-star-wars-crawl/lib/index.css'
 
@@ -14,11 +15,17 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      // repo: new StarWarsRepo()
+      data: new StarWarsRepo(),
+      intro: null
     }
   }
 
-  componentDidMount() {
+  async componentDidMount() {
+    
+    const intro = await this.state.data.getIntro();
+    this.setState({intro})
+
+    
     // check local storage
     // if (!localStorage.length) {
     // fetch call for intro
@@ -36,11 +43,15 @@ class App extends Component {
   }
 
   render() {
+    const { intro } = this.state
     return (
       <div>
         <Header />
         <Nav />
-        <Intro />
+        {
+          this.state.intro &&
+        <Intro intro={intro}/>
+        }
         {/* <CardContainer /> */}
       </div>
     );

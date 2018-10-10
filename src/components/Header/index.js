@@ -6,8 +6,12 @@ import './Header.css';
 const Header = () => {
   
   return (
-    <div className="header">
-      <img className='logo' src={logo}/>
+    <div className="header" >
+      <img 
+        className='logo' 
+        src={logo}
+        alt='Swapi Box Logo'
+        />
     </div>
   )
 }
