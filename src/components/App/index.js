@@ -29,8 +29,8 @@ class App extends Component {
       this.setState({ film });
     } else {
       const cards = await filterCards(type);
-      // this.setState({ cards })
-      console.log(cards)
+      this.setState({ cards })
+      // console.log(cards)
     }
   }
 
