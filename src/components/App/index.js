@@ -34,7 +34,7 @@ class App extends Component {
   }
 
   render() {
-    const { film } = this.state
+    const { film, cards } = this.state
     return (
       <div>
         <Header />
@@ -42,7 +42,7 @@ class App extends Component {
         {
           !this.state.cards.length > 0 
             ? <Intro film={film}/>
-            : <CardContainer /> 
+            : <CardContainer cards={cards}/> 
         }     
       </div>
     );
