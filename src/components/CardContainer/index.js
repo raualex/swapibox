@@ -1,10 +1,10 @@
 import React from 'react';
 
 const CardContainer = ({ cards }) => {
-  allCards = cards.map(card => <Card key={card.name} card={card}/>)
+  const allCards = cards.map(card => <Card key={card.name} data={card}/>)
   return (
     <div className="card-container">
-      { allCards }
+      {/* { allCards } */}
     </div>
   )
 }
