@@ -10,7 +10,23 @@ class Card extends Component {
   }
 
   componentDidMount() {
-    this.props.cardData.favorite 
-      ? this.setState()
+    const { favorite } = this.props.cardData
+    favorite ? this.setState({ favorite }) : null
+  }
+
+  render() {
+    const { name } = this.props.cardData;
+    description = Object.keys(this.props.cardData).map(spec)
+    return(
+      <div className='card'>
+        <img className='character-photo' alt={`${name} photo`}/>
+        <div className='card-info'>
+          <ul>
+
+          </ul>
+        </div>
+
+      </div>
+    )
   }
 }
