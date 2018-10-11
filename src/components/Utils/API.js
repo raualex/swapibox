@@ -8,6 +8,8 @@ export const filterCards = async (type) => {
     result = await fetchData(type, getPeople)
   } else if (type === 'planets') {
     result = await fetchData(type, getPlanets)
+  } else if (type === 'vehicles') {
+    result = await fetchData(type, getVehicles)
   } else {
     result = updateFavorites(type)
   }
@@ -103,6 +105,20 @@ const getResidents = async residents => {
 
 const numberWithCommas = (x) => {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+const getVehicles = async data => {
+  const results = data.map( vehicle => {
+    return { 
+      name: vehicle.name,
+      model: vehicle.model, 
+      class: vehicle.vehicle_class, 
+      Passengers: vehicle.passengers,
+      type: 'vehicle',
+      favorite: false 
+    }
+  })
+  return results;
 }
 
 
