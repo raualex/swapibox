@@ -69,23 +69,46 @@ const getPeople = async data => {
 
 const getPlanets = async data => {
   const unresolvedPromises = data.map(async planet => {
-    if (data.resident.length) {
-      const residenceResponse = await data.resident.map(async resident => {
-        const resident = await fetch(resident)
-        const result = await resident.json()
-        return result.name
-      })
-      return Promise.all(...residenceResponse);
+    if (planet.residents.length) {
+      const residentResponse = await getResidents(planet.residents)  
+      return { name: planet.name,
+        terrain: planet.terrain,
+        climate: planet.climate, 
+        population: planet.population, 
+        residents: residentResponse,
+        type: 'planets',
+        favorite: false 
+       }  
     }
     return { name: planet.name,
              terrain: planet.terrain,
              climate: planet.climate, 
              population: planet.population, 
-             residents: residenceResponse,
+             residents: 'none',
              type: 'planets',
              favorite: false 
             }
   })
+  return Promise.all(unresolvedPromises);
 }
 
+const getResidents = async residents => {
+  const unresolvedPromises = residents.map(async resident => {
+    const response = await fetch(resident)
+    const result = await response.json()
+    return result.name
+  })
+  return Promise.all(unresolvedPromises)
+}
+
+
+
+// return { name: planet.name,
+//   terrain: planet.terrain,
+//   climate: planet.climate, 
+//   population: planet.population, 
+//   residents: 'none',
+//   type: 'planets',
+//   favorite: false 
+//  }
 
