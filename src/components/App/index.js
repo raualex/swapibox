@@ -30,7 +30,7 @@ class App extends Component {
     } else {
       const cards = await API.filterCards(type);
       console.log(cards)
-      // this.setState({ cards })
+      this.setState({ cards })
     }
   }
 

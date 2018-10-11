@@ -24,11 +24,11 @@ export const filterCards = async (type) => {
   return result;
 }
 
-const getPeople = data => {
-  const unresolvedPromises = data.map( async character => {
+const getPeople = async data => {
+  const unresolvedPromises = data.map(async character => {
     const worldResponse = await fetch(character.homeworld)
-    const homeworld = await worldResponse.json();
-    const speciesResponse = await fetch(character.sepcies)
+    const homeworld = await worldResponse.json()
+    const speciesResponse = await fetch(character.species)
     const species = await speciesResponse.json()
 
     return { name: character.name, homeworld: homeworld.name, species: species.name, population: homeworld.population, type: 'people' }

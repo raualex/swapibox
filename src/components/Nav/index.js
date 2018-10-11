@@ -6,27 +6,40 @@ class Nav extends Component {
     super(props);
 
     this.state = {
-
+      isActive: ''
     }
   }
 
-  getPeople = (type) => {
-    // event.preventDefault()
-    this.props.getCards(type)
+  handleClick = (event) => {
+    const { name } = event.target
+
+    this.setState({
+      isActive: name
+    }, () => this.props.getCards(this.state.isActive))
   }
 
   render() {
+    const {isActive} = this.state.isActive
+
     return (
       <div className="button-container">
         <button 
           name="people"
-          className="people-btn"
-          onClick={(event) => this.getPeople(event.target.name)}
+          className={`btn ${isActive === 'people' ? 'selected' : ''}`}
+          onClick={this.handleClick}
         >People
         </button>
-        <button className="planets-btn">Planets</button>
-        <button className="vehicles-btn">Vehicles</button>
-        <button className="favorites-btn">Favorites</button>
+        <button 
+          name="planets"
+          className={`btn ${isActive === 'planets' ? 'selected' : ''}`}
+          onClick={this.handleClick}
+        >Planets</button>
+        <button 
+          name="vehicles"
+          className={`btn ${isActive === 'vehicles' ? 'selected' : ''}`}
+          onClick={this.handleClick}
+        >Vehicles</button>
+        <button className="btn">Favorites</button>
       </div>
     )
   }
