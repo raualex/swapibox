@@ -19,11 +19,16 @@ class Card extends Component {
     const { cardData } = this.props
     const { name } = this.props.cardData;
     const description = Object.keys(cardData).map((spec, index) => {
-      if (spec !== 'type' && spec !== 'favorite') {
+      if (spec !== 'type' && spec !== 'favorite' && !Array.isArray(cardData[spec])) {
+
         return <li key={Date.now() + index}>{spec}: {cardData[spec]}</li>
+      } else if (Array.isArray(cardData[spec])) {
+        console.log(cardData[spec])
+        return <li key={Date.now() + index}>{spec}: {cardData[spec].join(', ')}</li>
       }
-      return ''
+      return '';
     })
+    
     return(
       <div className='card'>
         <img className='character-photo' alt={name}/>

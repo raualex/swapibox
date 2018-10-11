@@ -60,7 +60,7 @@ const getPeople = async data => {
     return { name: character.name,
              homeworld: homeworld.name, 
              species: species.name, 
-             population: homeworld.population,
+             population: numberWithCommas(homeworld.population),
              type: 'people',
              favorite: false }
   })
@@ -74,7 +74,7 @@ const getPlanets = async data => {
       return { name: planet.name,
         terrain: planet.terrain,
         climate: planet.climate, 
-        population: planet.population, 
+        population: numberWithCommas(planet.population), 
         residents: residentResponse,
         type: 'planets',
         favorite: false 
@@ -83,7 +83,7 @@ const getPlanets = async data => {
     return { name: planet.name,
              terrain: planet.terrain,
              climate: planet.climate, 
-             population: planet.population, 
+             population: numberWithCommas(planet.population), 
              residents: 'none',
              type: 'planets',
              favorite: false 
@@ -99,6 +99,10 @@ const getResidents = async residents => {
     return result.name
   })
   return Promise.all(unresolvedPromises)
+}
+
+const numberWithCommas = (x) => {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 
