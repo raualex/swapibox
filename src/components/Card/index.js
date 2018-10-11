@@ -15,14 +15,15 @@ class Card extends Component {
   }
 
   render() {
+    const { cardData } = this.props
     const { name } = this.props.cardData;
-    description = Object.keys(this.props.cardData).map(spec)
+    description = Object.keys(cardData).map(spec => <li>{spec}: {cardData[spec]}</li>)
     return(
       <div className='card'>
         <img className='character-photo' alt={`${name} photo`}/>
         <div className='card-info'>
           <ul>
-
+            { description }
           </ul>
         </div>
 
