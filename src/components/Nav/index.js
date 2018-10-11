@@ -2,22 +2,44 @@ import React, { Component } from 'react';
 import './Nav.css';
 
 class Nav extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
-
+      isActive: ''
     }
   }
 
+  handleClick = (event) => {
+    const { name } = event.target
+
+    this.setState({
+      isActive: name
+    }, () => this.props.getCards(this.state.isActive))
+  }
 
   render() {
+    const {isActive} = this.state.isActive
+
     return (
       <div className="button-container">
-        <button className="people-btn">People</button>
-        <button className="planets-btn">Planets</button>
-        <button className="vehicles-btn">Vehicles</button>
-        <button className="favorites-btn">Favorites</button>
+        <button 
+          name="people"
+          className={`btn ${isActive === 'people' ? 'selected' : ''}`}
+          onClick={this.handleClick}
+        >People
+        </button>
+        <button 
+          name="planets"
+          className={`btn ${isActive === 'planets' ? 'selected' : ''}`}
+          onClick={this.handleClick}
+        >Planets</button>
+        <button 
+          name="vehicles"
+          className={`btn ${isActive === 'vehicles' ? 'selected' : ''}`}
+          onClick={this.handleClick}
+        >Vehicles</button>
+        <button className="btn">Favorites</button>
       </div>
     )
   }
