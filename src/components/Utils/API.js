@@ -6,6 +6,8 @@ export const filterCards = async (type) => {
     result = await fetchData(type, getFilm)
   } else if (type === 'people') {
     result = await fetchData(type, getPeople)
+  } else if (type === 'planets') {
+    result = await fetchData(type, getPlanets)
   } else {
     result = updateFavorites(type)
   }
@@ -63,6 +65,27 @@ const getPeople = async data => {
              favorite: false }
   })
   return Promise.all(unresolvedPromises);
+}
+
+const getPlanets = async data => {
+  const unresolvedPromises = data.map(async planet => {
+    if (data.resident.length) {
+      const residenceResponse = await data.resident.map(async resident => {
+        const resident = await fetch(resident)
+        const result = await resident.json()
+        return result.name
+      })
+      return Promise.all(...residenceResponse);
+    }
+    return { name: planet.name,
+             terrain: planet.terrain,
+             climate: planet.climate, 
+             population: planet.population, 
+             residents: residenceResponse,
+             type: 'planets',
+             favorite: false 
+            }
+  })
 }
 
 
