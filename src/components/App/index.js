@@ -40,10 +40,10 @@ class App extends Component {
         <Header />
         <Nav getCards={this.getCards} />
         {
-          !this.state.cards.length > 0 && 
-          <Intro film={film}/> 
-        }
-        {/* <CardContainer /> */}
+          !this.state.cards.length > 0 
+            ? <Intro film={film}/>
+            : <CardContainer /> 
+        }     
       </div>
     );
   }
