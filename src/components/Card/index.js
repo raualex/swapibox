@@ -10,6 +10,7 @@ class Card extends Component {
   }
 
   componentDidMount() {
-    this.prop
+    this.props.cardData.favorite 
+      ? this.setState()
   }
 }
