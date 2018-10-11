@@ -6,6 +6,8 @@ export const filterCards = async (type) => {
     result = await fetchData(type, getFilm)
   } else if (type === 'people') {
     result = await fetchData(type, getPeople)
+  } else {
+    result = updateFavorites(type)
   }
   return result;
 }
