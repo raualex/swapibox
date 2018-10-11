@@ -3,9 +3,9 @@ import Nav from '../Nav';
 import CardContainer from '../CardContainer';
 import Header from '../Header';
 import Intro from '../Intro';
-import * as API from '../Utils/API'
+import * as API from '../Utils/API';
 
-import 'react-star-wars-crawl/lib/index.css'
+import 'react-star-wars-crawl/lib/index.css';
 import './App.css';
 
 
@@ -13,29 +13,36 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      intro: [],
+      film: [],
       cards: []
     }
   }
 
-  async componentDidMount() {
-    this.loadIntro();
+  componentDidMount() {
+    this.getCards('films');
   }
 
-  async loadIntro() {
-    const intro = await API.getIntro();
-    this.setState({intro})
+  getCards = async (type) =>  {
+
+    if (type === 'films') {
+      const film = await API.filterCards(type);
+      this.setState({ film });
+    } else {
+      const cards = await API.filterCards(type);
+      console.log(cards)
+      // this.setState({ cards })
+    }
   }
 
   render() {
-    const { intro } = this.state
+    const { film } = this.state
     return (
       <div>
         <Header />
-        <Nav />
+        <Nav getCards={this.getCards} />
         {
           !this.state.cards.length > 0 && 
-          <Intro intro={intro}/> 
+          <Intro film={film}/> 
         }
         {/* <CardContainer /> */}
       </div>

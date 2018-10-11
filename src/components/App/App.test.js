@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import App from '.';
 
 describe('App', () => {
@@ -15,8 +15,10 @@ describe('App', () => {
     expect(wrapper).toMatchSnapshot()
   });
 
-  it('renders nav and card container children components', () => {
+  it('fires loadIntro when mounted', () => {
+    wrapper.instance().loadIntro = jest.fn()
     
-  })
+    expect(wrapper.instance().loadIntro).toHaveBeenCalled();
+  });
 
 });

@@ -7,10 +7,10 @@ import './Intro.css';
 import loading from '../Utils/assets/loading.svg'
 
 
-const Intro = ({ intro }) => {
-  const randomNumber = Math.round(Math.random() * intro.length) - 1;
+const Intro = ({ film }) => {
+  const randomNumber = Math.round(Math.random() * film.length) - 1;
   return (
-    <div className='intro'>
+    <div className='film'>
       {
         randomNumber >= 0 &&
       <Crawl
@@ -18,9 +18,9 @@ const Intro = ({ intro }) => {
         textContainerStyles={{height: '200px', perspective: '375px'}}
         titleStyles={{fontSize: '125%'}}
         fadeStyles={{minHeight: '50vh', top: '-100px'}}
-        title={intro[randomNumber].title.toUpperCase()}
-        subTitle={intro[randomNumber].release_date.slice(0, 4)}
-        text={intro[randomNumber].opening_crawl}
+        title={film[randomNumber].title.toUpperCase()}
+        subTitle={film[randomNumber].release_date.slice(0, 4)}
+        text={film[randomNumber].opening_crawl}
       />
       }
       {
