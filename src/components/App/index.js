@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import Nav from '../Nav';
-import CardContainer from '../CardContainer';
-import Header from '../Header';
-import Intro from '../Intro';
-import * as API from '../Utils/API';
 
-import 'react-star-wars-crawl/lib/index.css';
+import Header from '../Header';
+import Nav from '../Nav';
+import Intro from '../Intro';
+import CardContainer from '../CardContainer';
+
+import { filterCards } from '../Utils/API';
 import './App.css';
+
 
 
 class App extends Component {
@@ -23,13 +24,11 @@ class App extends Component {
   }
 
   getCards = async (type) =>  {
-
     if (type === 'films') {
-      const film = await API.filterCards(type);
+      const film = await filterCards(type);
       this.setState({ film });
     } else {
-      const cards = await API.filterCards(type);
-      console.log(cards)
+      const cards = await filterCards(type);
       this.setState({ cards })
     }
   }

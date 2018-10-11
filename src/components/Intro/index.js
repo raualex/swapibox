@@ -25,7 +25,7 @@ const Intro = ({ film }) => {
       }
       {
         randomNumber < 0 &&
-      <img className='loading' 
+      <img className='load' 
           src={loading} 
           alt='loading'
           />

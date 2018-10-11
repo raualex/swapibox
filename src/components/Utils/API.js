@@ -1,19 +1,5 @@
-
-
-export const getFilm = async (data) => {
-  return data;
-}
-
-export const fetchData = async (url, func) => {
-  const response = await fetch(`https://swapi.co/api/${url}`);
-  const data = await response.json();
-  const results = await func(data.results)
-  return results  
-}
-
 export const filterCards = async (type) => {
   let result;
-
   if (checkLocalStorage(type)) {
     return checkLocalStorage(type)
   } else if (type === 'films') {
@@ -22,6 +8,27 @@ export const filterCards = async (type) => {
     result = await fetchData(type, getPeople)
   }
   return result;
+}
+
+const fetchData = async (url, func) => {
+  const response = await fetch(`https://swapi.co/api/${url}`);
+  const data = await response.json();
+  const results = await func(data.results)
+  return results  
+}
+
+const getFilm = async (data) => {
+  return data;
+}
+
+const checkLocalStorage = (category) => {
+  if (localStorage.getItem('cards')) {
+    const cards = JSON.parse(localStorage.getItem('cards'))
+    const result = cards.filter(card => card.type === category)
+    result.length > 0 ? result : false;
+  } else {
+    return false
+  }
 }
 
 const getPeople = async data => {
@@ -36,13 +43,4 @@ const getPeople = async data => {
   return Promise.all(unresolvedPromises);
 }
 
-const checkLocalStorage = (category) => {
-
-  if (localStorage.getItem('cards')) {
-    const cards = JSON.parse(localStorage.getItem('cards'))
-    return cards.filter(card => card.type === category)
-  } else {
-    return false
-  }
-}
 
