@@ -17,19 +17,33 @@ const fetchData = async (url, func) => {
   return results  
 }
 
-const getFilm = async (data) => {
-  return data;
-}
 
-const checkLocalStorage = (category) => {
+const checkLocalStorage = (value) => {
   if (localStorage.getItem('cards')) {
     const cards = JSON.parse(localStorage.getItem('cards'))
-    const result = cards.filter(card => card.type === category)
+    const result = cards.filter(card => {
+      if (value === 'favorite') {
+        return card.favorite === true
+      } else {
+        return card.type === value
+      }
+    })
     return result.length > 0 ? result : false;
-    // ????
   } else {
     return false
   }
+}
+
+const updateFavorites = (name) => {
+  const cards = JSON.parse(localStorage.getItem('cards'))
+  cards.forEach(card => { 
+    return card[name] ? card.favorite = !card.favorite : '' 
+  })
+  localStorage.setItem('cards', JSON.stringify(cards))
+}
+
+const getFilm = async (data) => {
+  return data;
 }
 
 const getPeople = async data => {
@@ -39,7 +53,12 @@ const getPeople = async data => {
     const speciesResponse = await fetch(character.species)
     const species = await speciesResponse.json()
 
-    return { name: character.name, homeworld: homeworld.name, species: species.name, population: homeworld.population, type: 'people' }
+    return { name: character.name,
+             homeworld: homeworld.name, 
+             species: species.name, 
+             population: homeworld.population,
+             type: 'people',
+             favorite: false }
   })
   return Promise.all(unresolvedPromises);
 }
