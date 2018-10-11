@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Card.css'
 
 
 class Card extends Component {
@@ -17,7 +18,12 @@ class Card extends Component {
   render() {
     const { cardData } = this.props
     const { name } = this.props.cardData;
-    const description = Object.keys(cardData).map(spec => <li>{spec}: {cardData[spec]}</li>)
+    const description = Object.keys(cardData).map((spec, index) => {
+      if (spec !== 'type' && spec !== 'favorite') {
+        return <li key={Date.now() + index}>{spec}: {cardData[spec]}</li>
+      }
+      return ''
+    })
     return(
       <div className='card'>
         <img className='character-photo' alt={name}/>
@@ -26,7 +32,6 @@ class Card extends Component {
             { description }
           </ul>
         </div>
-
       </div>
     )
   }
