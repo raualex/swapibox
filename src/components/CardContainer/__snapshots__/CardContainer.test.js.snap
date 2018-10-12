@@ -3,7 +3,21 @@
 exports[`CardContainer matches the snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <CardContainer />,
+  Symbol(enzyme.__unrendered__): <CardContainer
+    cards={
+      Array [
+        Object {
+          "name": "Luke",
+        },
+        Object {
+          "name": "Lando",
+        },
+        Object {
+          "name": "R2-D2",
+        },
+      ]
+    }
+  />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -17,11 +31,73 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": "Card",
+      "children": Array [
+        <Card
+          cardData={
+            Object {
+              "name": "Luke",
+            }
+          }
+        />,
+        <Card
+          cardData={
+            Object {
+              "name": "Lando",
+            }
+          }
+        />,
+        <Card
+          cardData={
+            Object {
+              "name": "R2-D2",
+            }
+          }
+        />,
+      ],
       "className": "card-container",
     },
     "ref": null,
-    "rendered": "Card",
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "Luke",
+        "nodeType": "class",
+        "props": Object {
+          "cardData": Object {
+            "name": "Luke",
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "Lando",
+        "nodeType": "class",
+        "props": Object {
+          "cardData": Object {
+            "name": "Lando",
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "R2-D2",
+        "nodeType": "class",
+        "props": Object {
+          "cardData": Object {
+            "name": "R2-D2",
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
     "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
@@ -30,11 +106,73 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": "Card",
+        "children": Array [
+          <Card
+            cardData={
+              Object {
+                "name": "Luke",
+              }
+            }
+          />,
+          <Card
+            cardData={
+              Object {
+                "name": "Lando",
+              }
+            }
+          />,
+          <Card
+            cardData={
+              Object {
+                "name": "R2-D2",
+              }
+            }
+          />,
+        ],
         "className": "card-container",
       },
       "ref": null,
-      "rendered": "Card",
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "Luke",
+          "nodeType": "class",
+          "props": Object {
+            "cardData": Object {
+              "name": "Luke",
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "Lando",
+          "nodeType": "class",
+          "props": Object {
+            "cardData": Object {
+              "name": "Lando",
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "R2-D2",
+          "nodeType": "class",
+          "props": Object {
+            "cardData": Object {
+              "name": "R2-D2",
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
       "type": "div",
     },
   ],

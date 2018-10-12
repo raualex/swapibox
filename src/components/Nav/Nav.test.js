@@ -16,9 +16,11 @@ describe('Nav', () => {
   });
 
   it('should fire people search func on button click', () => {
-    let mockEvent = { preventDefault: jest.fn() }
+    let mockEvent = { target: true, name: 'people' }
+    let handleClick = jest.fn()
 
-    expect(wrapper.getCards()).toHaveBeenCalled()
+    wrapper.find('.people-btn').simulate('click', mockEvent)
+    expect(wrapper.instance().handleClick(mockEvent)).toHaveBeenCalled()
   });
 
 });

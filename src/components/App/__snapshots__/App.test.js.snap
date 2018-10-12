@@ -23,7 +23,7 @@ ShallowWrapper {
           getCards={[Function]}
         />,
         <Intro
-          intro={Array []}
+          film={Array []}
         />,
       ],
     },
@@ -54,7 +54,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
-          "intro": Array [],
+          "film": Array [],
         },
         "ref": null,
         "rendered": null,
@@ -75,7 +75,7 @@ ShallowWrapper {
             getCards={[Function]}
           />,
           <Intro
-            intro={Array []}
+            film={Array []}
           />,
         ],
       },
@@ -106,7 +106,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
-            "intro": Array [],
+            "film": Array [],
           },
           "ref": null,
           "rendered": null,

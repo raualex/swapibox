@@ -1,6 +1,11 @@
-import React from 'react';
-import API from '.';
+// import React from 'react';
+import * from './API.js';
 
-describe(() => {
+describe('API', () => {
   
+  it('should fire getFilms when filterCards has "films" as a param', () => {
+    filterCards('films')
+    expect(getFilm()).toHaveBeenCalled()
+  });
+
 });

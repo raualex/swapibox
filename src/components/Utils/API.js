@@ -16,7 +16,7 @@ export const filterCards = async (type) => {
   return result;
 }
 
-const fetchData = async (url, func) => {
+export const fetchData = async (url, func) => {
   const response = await fetch(`https://swapi.co/api/${url}`);
   const data = await response.json();
   const results = await func(data.results)
@@ -24,7 +24,7 @@ const fetchData = async (url, func) => {
 }
 
 
-const checkLocalStorage = (value) => {
+export const checkLocalStorage = (value) => {
   if (localStorage.getItem('cards')) {
     const cards = JSON.parse(localStorage.getItem('cards'))
     const result = cards.filter(card => {
@@ -40,7 +40,7 @@ const checkLocalStorage = (value) => {
   }
 }
 
-const updateFavorites = (name) => {
+export const updateFavorites = (name) => {
   const cards = JSON.parse(localStorage.getItem('cards'))
   cards.forEach(card => { 
     return card[name] ? card.favorite = !card.favorite : '' 
@@ -48,11 +48,11 @@ const updateFavorites = (name) => {
   localStorage.setItem('cards', JSON.stringify(cards))
 }
 
-const getFilm = async (data) => {
+export const getFilm = async (data) => {
   return data;
 }
 
-const getPeople = async data => {
+export const getPeople = async data => {
   const unresolvedPromises = data.map(async character => {
     const worldResponse = await fetch(character.homeworld)
     const homeworld = await worldResponse.json()
@@ -69,7 +69,7 @@ const getPeople = async data => {
   return Promise.all(unresolvedPromises);
 }
 
-const getPlanets = async data => {
+export const getPlanets = async data => {
   const unresolvedPromises = data.map(async planet => {
     if (planet.residents.length) {
       const residentResponse = await getResidents(planet.residents)  
@@ -94,7 +94,7 @@ const getPlanets = async data => {
   return Promise.all(unresolvedPromises);
 }
 
-const getResidents = async residents => {
+export const getResidents = async residents => {
   const unresolvedPromises = residents.map(async resident => {
     const response = await fetch(resident)
     const result = await response.json()
@@ -107,7 +107,7 @@ const numberWithCommas = (x) => {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-const getVehicles = async data => {
+export const getVehicles = async data => {
   const results = data.map( vehicle => {
     return { 
       name: vehicle.name,
