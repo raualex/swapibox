@@ -56,8 +56,10 @@ const setLocalStorage = (data) => {
     const result = [...cards, ...data]
     localStorage.setItem('cards', JSON.stringify(result))
     return
+  } else {
+    localStorage.setItem('cards', JSON.stringify(data))
+    return
   }
-  return
 }
 
 const getFilms = async (data) => {
@@ -70,7 +72,6 @@ const getFilms = async (data) => {
   })
   return result;
 }
-
 
 const getFavorites = () => {
   const cards = JSON.parse(localStorage.getItem('cards'))

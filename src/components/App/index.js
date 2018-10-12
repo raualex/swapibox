@@ -9,7 +9,6 @@ import { filterCards } from '../Utils/API';
 import './App.css';
 
 
-
 class App extends Component {
   constructor() {
     super()
@@ -27,7 +26,7 @@ class App extends Component {
     const data = await filterCards(type);
     const types = ['films', 'people', 'vehicles', 'planets']
     if (types.includes(type)) {
-      await this.setState({ data });
+      this.setState({ data });
     } 
   }
 

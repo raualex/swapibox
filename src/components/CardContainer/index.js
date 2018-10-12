@@ -6,7 +6,7 @@ const CardContainer = ({ data }) => {
   const allCards = data.map(card => <Card key={card.name} cardData={card}/>)
   return (
     <div>
-      { !data[0].type === 'films' &&
+      { data[0].type !== 'films' &&
       <div className="card-container">
         { allCards }
       </div>

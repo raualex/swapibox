@@ -22,7 +22,6 @@ class Card extends Component {
       if (spec !== 'type' && spec !== 'favorite' && !Array.isArray(cardData[spec])) {
         return <li key={Date.now() + index}>{spec}: {cardData[spec]}</li>
       } else if (Array.isArray(cardData[spec])) {
-        console.log(cardData[spec])
         return <li key={Date.now() + index}>{spec}: {cardData[spec].join(', ')}</li>
       }
       return '';
