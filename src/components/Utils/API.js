@@ -28,6 +28,7 @@ const fetchData = async (url, func) => {
   const response = await fetch(`https://swapi.co/api/${url}`);
   const data = await response.json();
   const results = await func(data.results)
+  setLocalStorage(results)
   return results  
 }
 
@@ -49,8 +50,25 @@ const updateFavorites = (name) => {
   localStorage.setItem('cards', JSON.stringify(cards))
 }
 
+const setLocalStorage = (data) => {
+  const cards = JSON.parse(localStorage.getItem('cards'))
+  if (cards) {
+    const result = [...cards, ...data]
+    localStorage.setItem('cards', JSON.stringify(result))
+    return
+  }
+  return
+}
+
 const getFilms = async (data) => {
-  return data;
+  const result = data.map(data => {
+    return {
+      title: data.title,
+      opening_crawl: data.opening_crawl,
+      type: 'films'
+    }
+  })
+  return result;
 }
 
 

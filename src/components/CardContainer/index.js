@@ -4,15 +4,14 @@ import Intro from '../Intro'
 
 const CardContainer = ({ data }) => {
   const allCards = data.map(card => <Card key={card.name} cardData={card}/>)
-  console.log(data.title)
   return (
     <div>
-      { data[0].type &&
+      { !data[0].type === 'films' &&
       <div className="card-container">
         { allCards }
       </div>
       }
-      { data[0].title &&
+      { data[0].type === 'films' &&
       <Intro films={data} />
       }
     </div>
