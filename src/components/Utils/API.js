@@ -1,17 +1,22 @@
 export const filterCards = async (type) => {
   let result;
-  if (checkLocalStorage(type)) {
-    return checkLocalStorage(type)
-  } else if (type === 'films') {
-    result = await fetchData(type, getFilm)
-  } else if (type === 'people') {
-    result = await fetchData(type, getPeople)
-  } else if (type === 'planets') {
-    result = await fetchData(type, getPlanets)
-  } else if (type === 'vehicles') {
-    result = await fetchData(type, getVehicles)
-  } else {
-    result = updateFavorites(type)
+  switch (type) {
+    case checkLocalStorage(type):
+      result = checkLocalStorage(type)
+      break;
+    case 'films':
+      result = await fetchData(type, getFilms)
+      break;
+    case 'people':
+      result = await fetchData(type, getPeople)
+      break;
+    case 'planets':
+      result = await fetchData(type, getPlanets)
+      break;
+    case 'vehicles':
+      result = await fetchData(type, getVehicles)
+      break;
+    default: updateFavorites(type) 
   }
   return result;
 }
@@ -48,7 +53,7 @@ const updateFavorites = (name) => {
   localStorage.setItem('cards', JSON.stringify(cards))
 }
 
-const getFilm = async (data) => {
+const getFilms = async (data) => {
   return data;
 }
 
@@ -120,15 +125,3 @@ const getVehicles = async data => {
   })
   return results;
 }
-
-
-
-// return { name: planet.name,
-//   terrain: planet.terrain,
-//   climate: planet.climate, 
-//   population: planet.population, 
-//   residents: 'none',
-//   type: 'planets',
-//   favorite: false 
-//  }
-

@@ -14,7 +14,7 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      film: [],
+      films: [],
       cards: []
     }
   }
@@ -25,8 +25,8 @@ class App extends Component {
 
   getCards = async (type) =>  {
     if (type === 'films') {
-      const film = await filterCards(type);
-      this.setState({ film });
+      const films = await filterCards(type);
+      this.setState({ films });
     } else {
       const cards = await filterCards(type);
       this.setState({ cards })
@@ -35,7 +35,7 @@ class App extends Component {
   }
 
   render() {
-    const { film, cards } = this.state
+    const { films, cards } = this.state
     return (
       <div>
         <Header />
@@ -43,7 +43,7 @@ class App extends Component {
         {
           this.state.cards.length > 0 
           ? <CardContainer cards={cards}/> 
-          : <Intro film={film}/>
+          : <Intro films={films}/>
         }     
       </div>
     );
