@@ -4,7 +4,6 @@ import Crawl from 'react-star-wars-crawl';
 import 'react-star-wars-crawl/lib/index.css'
 
 import './Intro.css';
-import loading from '../Utils/assets/loading.svg'
 
 
 const Intro = ({ films }) => {
@@ -16,20 +15,14 @@ const Intro = ({ films }) => {
       <Crawl
         containerStyles={{background: 'transparent'}}
         textContainerStyles={{height: '200px', perspective: '375px'}}
-        titleStyles={{fontSize: '125%'}}
+        titleStyles={{fontSize: '150%'}}
         fadeStyles={{minHeight: '50vh', top: '-100px'}}
         title={films[randomNumber].title.toUpperCase()}
-        subTitle={films[randomNumber].release_date.slice(0, 4)}
+        // subTitle={films[randomNumber].release_date.slice(0, 4)}
         text={films[randomNumber].opening_crawl}
       />
       }
-      {
-        randomNumber < 0 &&
-      <img className='load' 
-          src={loading} 
-          alt='loading'
-          />
-      }
+     
     </div>
   )
 }

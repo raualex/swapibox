@@ -28,12 +28,11 @@ const fetchData = async (url, func) => {
   return results  
 }
 
-
 const checkLocalStorage = (value) => {
   if (localStorage.getItem('cards')) {
     const cards = JSON.parse(localStorage.getItem('cards'))
     const result = cards.filter(card => {
-      if (value === 'favorite') {
+      if (card.value === 'favorite') {
         return card.favorite === true
       } else {
         return card.type === value
@@ -69,7 +68,8 @@ const getPeople = async data => {
              species: species.name, 
              population: numberWithCommas(homeworld.population),
              type: 'people',
-             favorite: false }
+             favorite: false 
+            }
   })
   return Promise.all(unresolvedPromises);
 }
@@ -108,10 +108,6 @@ const getResidents = async residents => {
   return Promise.all(unresolvedPromises)
 }
 
-const numberWithCommas = (x) => {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
-
 const getVehicles = async data => {
   const results = data.map( vehicle => {
     return { 
@@ -124,4 +120,8 @@ const getVehicles = async data => {
     }
   })
   return results;
+}
+
+const numberWithCommas = (number) => {
+  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
