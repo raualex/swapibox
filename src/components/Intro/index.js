@@ -22,7 +22,6 @@ const Intro = ({ films }) => {
         text={films[randomNumber].opening_crawl}
       />
       }
-     
     </div>
   )
 }

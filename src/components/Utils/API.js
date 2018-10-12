@@ -16,6 +16,9 @@ export const filterCards = async (type) => {
     case 'vehicles':
       result = await fetchData(type, getVehicles)
       break;
+    case 'favorites':
+      result = getFavorites();
+      break;
     default: updateFavorites(type) 
   }
   return result;
@@ -31,14 +34,8 @@ const fetchData = async (url, func) => {
 const checkLocalStorage = (value) => {
   if (localStorage.getItem('cards')) {
     const cards = JSON.parse(localStorage.getItem('cards'))
-    const result = cards.filter(card => {
-      if (card.value === 'favorite') {
-        return card.favorite === true
-      } else {
-        return card.type === value
-      }
-    })
-    return result.length > 0 ? result : false;
+    const result = cards.filter(card => card.type === value)
+    return result.length ? result : false;
   } else {
     return false
   }
@@ -54,6 +51,13 @@ const updateFavorites = (name) => {
 
 const getFilms = async (data) => {
   return data;
+}
+
+
+const getFavorites = () => {
+  const cards = JSON.parse(localStorage.getItem('cards'))
+  const result = cards.filter(card => card.favorite )
+  return result
 }
 
 const getPeople = async data => {
