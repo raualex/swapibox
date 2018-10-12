@@ -1,17 +1,25 @@
 export const filterCards = async (type) => {
   let result;
-  if (checkLocalStorage(type)) {
-    return checkLocalStorage(type)
-  } else if (type === 'films') {
-    result = await fetchData(type, getFilm)
-  } else if (type === 'people') {
-    result = await fetchData(type, getPeople)
-  } else if (type === 'planets') {
-    result = await fetchData(type, getPlanets)
-  } else if (type === 'vehicles') {
-    result = await fetchData(type, getVehicles)
-  } else {
-    result = updateFavorites(type)
+  switch (type) {
+    case checkLocalStorage(type):
+      result = checkLocalStorage(type)
+      break;
+    case 'films':
+      result = await fetchData(type, getFilms)
+      break;
+    case 'people':
+      result = await fetchData(type, getPeople)
+      break;
+    case 'planets':
+      result = await fetchData(type, getPlanets)
+      break;
+    case 'vehicles':
+      result = await fetchData(type, getVehicles)
+      break;
+    case 'favorites':
+      result = getFavorites();
+      break;
+    default: updateFavorites(type) 
   }
   return result;
 }
@@ -20,21 +28,15 @@ const fetchData = async (url, func) => {
   const response = await fetch(`https://swapi.co/api/${url}`);
   const data = await response.json();
   const results = await func(data.results)
+  setLocalStorage(results)
   return results  
 }
-
 
 const checkLocalStorage = (value) => {
   if (localStorage.getItem('cards')) {
     const cards = JSON.parse(localStorage.getItem('cards'))
-    const result = cards.filter(card => {
-      if (value === 'favorite') {
-        return card.favorite === true
-      } else {
-        return card.type === value
-      }
-    })
-    return result.length > 0 ? result : false;
+    const result = cards.filter(card => card.type === value)
+    return result.length ? result : false;
   } else {
     return false
   }
@@ -48,8 +50,33 @@ const updateFavorites = (name) => {
   localStorage.setItem('cards', JSON.stringify(cards))
 }
 
-const getFilm = async (data) => {
-  return data;
+const setLocalStorage = (data) => {
+  const cards = JSON.parse(localStorage.getItem('cards'))
+  if (cards) {
+    const result = [...cards, ...data]
+    localStorage.setItem('cards', JSON.stringify(result))
+    return
+  } else {
+    localStorage.setItem('cards', JSON.stringify(data))
+    return
+  }
+}
+
+const getFilms = async (data) => {
+  const result = data.map(data => {
+    return {
+      title: data.title,
+      opening_crawl: data.opening_crawl,
+      type: 'films'
+    }
+  })
+  return result;
+}
+
+const getFavorites = () => {
+  const cards = JSON.parse(localStorage.getItem('cards'))
+  const result = cards.filter(card => card.favorite )
+  return result
 }
 
 const getPeople = async data => {
@@ -64,7 +91,8 @@ const getPeople = async data => {
              species: species.name, 
              population: numberWithCommas(homeworld.population),
              type: 'people',
-             favorite: false }
+             favorite: false 
+            }
   })
   return Promise.all(unresolvedPromises);
 }
@@ -103,10 +131,6 @@ const getResidents = async residents => {
   return Promise.all(unresolvedPromises)
 }
 
-const numberWithCommas = (x) => {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
-
 const getVehicles = async data => {
   const results = data.map( vehicle => {
     return { 
@@ -121,14 +145,6 @@ const getVehicles = async data => {
   return results;
 }
 
-
-
-// return { name: planet.name,
-//   terrain: planet.terrain,
-//   climate: planet.climate, 
-//   population: planet.population, 
-//   residents: 'none',
-//   type: 'planets',
-//   favorite: false 
-//  }
-
+const numberWithCommas = (number) => {
+  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}

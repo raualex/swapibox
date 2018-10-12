@@ -1,0 +1,8 @@
+.loading {
+  display: flex;
+  justify-content: center;
+}
+
+.load {
+  margin-top: 200px;
+}
