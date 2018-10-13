@@ -24,11 +24,11 @@ export const filterCards = async (type) => {
   return result;
 }
 
-const fetchData = async (url, func) => {
-  const response = await fetch(`https://swapi.co/api/${url}`);
+const fetchData = async (type, func) => {
+  const response = await fetch(`https://swapi.co/api/${type}`);
   const data = await response.json();
   const results = await func(data.results)
-  setLocalStorage(results)
+  setLocalStorage(results, type)
   return results  
 }
 
@@ -52,9 +52,10 @@ const updateFavorites = (name) => {
 }
 
 const setLocalStorage = (data, type) => {
-  const cards = JSON.parse(localStorage.getItem('cards'))
-  const types = cards.map(card => card.type)
-  if (!types.includes(type)) {
+  // debugger
+  const cards = JSON.parse(localStorage.getItem('cards')) || []
+  const types = cards.filter(card => card.type === type)
+  if (!types.length) {
     const result = [...cards, ...data]
     localStorage.setItem('cards', JSON.stringify(result))
     return
@@ -139,7 +140,7 @@ const getVehicles = async data => {
       model: vehicle.model, 
       class: vehicle.vehicle_class, 
       Passengers: vehicle.passengers,
-      type: 'vehicle',
+      type: 'vehicles',
       favorite: false 
     }
   })
