@@ -19,7 +19,7 @@ class Nav extends Component {
   }
 
   render() {
-    const {isActive} = this.state.isActive
+    const {isActive} = this.state
 
     return (
       <div className="button-container">
