@@ -15,10 +15,11 @@ describe('App', () => {
     expect(wrapper).toMatchSnapshot()
   });
 
-  it('fires loadIntro when mounted', () => {
-    wrapper.instance().loadIntro = jest.fn()
-    
-    expect(wrapper.instance().loadIntro).toHaveBeenCalled();
+  it('fires getCards when mounted', () => {
+    wrapper = mount(<App />);
+    const spy = spyOn(wrapper.instance(), 'getCards')
+    wrapper.instance().getCards()
+    expect(spy).toHaveBeenCalled();
   });
 
 });

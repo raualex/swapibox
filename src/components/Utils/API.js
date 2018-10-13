@@ -36,6 +36,7 @@ const checkLocalStorage = (value) => {
   if (localStorage.getItem('cards')) {
     const cards = JSON.parse(localStorage.getItem('cards'))
     const result = cards.filter(card => card.type === value)
+    console.log(result)
     return result.length ? result : false;
   } else {
     return false
