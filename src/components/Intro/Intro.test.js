@@ -9,12 +9,12 @@ describe('Intro', () => {
   let intro = [films.results[0]]
 
   beforeEach(() => {
-    wrapper = shallow(<Intro intro={intro} />);
+    wrapper = shallow(<Intro films={intro} />);
   });
 
 
   it('matches the snapshot', () => { 
-
+    const randomNumber = 1
     expect(wrapper).toMatchSnapshot()
   });
 

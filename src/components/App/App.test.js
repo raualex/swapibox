@@ -15,6 +15,14 @@ describe('App', () => {
     expect(wrapper).toMatchSnapshot()
   });
 
+  it('loads with the correct state', () => {
+    const expected = {
+      data: []
+    }
+
+    expect(wrapper.state()).toEqual(expected)
+  });
+
   it('fires getCards when mounted', () => {
     wrapper = mount(<App />);
     const spy = spyOn(wrapper.instance(), 'getCards')

@@ -1,6 +1,10 @@
 import React from 'react';
 import API from '.';
 
-describe(() => {
+describe('API', () => {
   
+  it('should call fetch with correct params', () {
+    
+  });
+
 });

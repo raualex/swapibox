@@ -2,12 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
 import CardContainer from '.';
+import Card from '../Card'
 
 describe('CardContainer', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<CardContainer cards={[{name: 'Luke'},{name: 'Lando'},{name: 'R2-D2'}]} />);
+    wrapper = shallow(<CardContainer data={[{name: 'Luke', type: 'people'},{name: 'Lando'},{name: 'R2-D2'}]} />);
   });
 
 
@@ -16,7 +17,7 @@ describe('CardContainer', () => {
   });
 
   it('renders appropriate number of cards', () => {
-    expect(wrapper.children().length).toEqual(3)
+    expect(wrapper.find(Card).length).toEqual(3)
   });
 
 });
