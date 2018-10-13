@@ -2,20 +2,18 @@ import React, { Component } from 'react';
 
 import Header from '../Header';
 import Nav from '../Nav';
-import Intro from '../Intro';
+import Loading from '../Loading';
 import CardContainer from '../CardContainer';
 
 import { filterCards } from '../Utils/API';
 import './App.css';
 
 
-
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      film: [],
-      cards: []
+      data: [],
     }
   }
 
@@ -24,27 +22,25 @@ class App extends Component {
   }
 
   getCards = async (type) =>  {
-    if (type === 'films') {
-      const film = await filterCards(type);
-      this.setState({ film });
-    } else {
-      const cards = await filterCards(type);
-      this.setState({ cards })
-      // console.log(cards)
-    }
+    this.setState({ data: [] });
+    const data = await filterCards(type);
+    const types = ['films', 'people', 'vehicles', 'planets']
+    if (types.includes(type)) {
+      this.setState({ data });
+    } 
   }
 
   render() {
-    const { film, cards } = this.state
+    const { data } = this.state
     return (
       <div>
         <Header />
         <Nav getCards={this.getCards} />
         {
-          this.state.cards.length > 0 
-          ? <CardContainer cards={cards}/> 
-          : <Intro film={film}/>
-        }     
+          data.length
+            ? <CardContainer data={data} /> 
+            : <Loading/>    
+        }
       </div>
     );
   }

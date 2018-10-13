@@ -6,7 +6,7 @@ import {films} from '../Utils/mockData'
 
 describe('Intro', () => {
   let wrapper;
-  let intro = films.results[0]
+  let intro = [films.results[0]]
 
   beforeEach(() => {
     wrapper = shallow(<Intro intro={intro} />);
@@ -14,6 +14,7 @@ describe('Intro', () => {
 
 
   it('matches the snapshot', () => { 
+
     expect(wrapper).toMatchSnapshot()
   });
 

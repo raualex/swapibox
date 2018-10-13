@@ -7,12 +7,16 @@ describe('CardContainer', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<CardContainer />);
+    wrapper = shallow(<CardContainer cards={[{name: 'Luke'},{name: 'Lando'},{name: 'R2-D2'}]} />);
   });
 
 
   it('matches the snapshot', () => { 
     expect(wrapper).toMatchSnapshot()
+  });
+
+  it('renders appropriate number of cards', () => {
+    expect(wrapper.children().length).toEqual(3)
   });
 
 });
