@@ -51,14 +51,14 @@ const updateFavorites = (name) => {
   localStorage.setItem('cards', JSON.stringify(cards))
 }
 
-const setLocalStorage = (data) => {
+const setLocalStorage = (data, type) => {
   const cards = JSON.parse(localStorage.getItem('cards'))
-  if (cards) {
+  const types = cards.map(card => card.type)
+  if (!types.includes(type)) {
     const result = [...cards, ...data]
     localStorage.setItem('cards', JSON.stringify(result))
     return
   } else {
-    localStorage.setItem('cards', JSON.stringify(data))
     return
   }
 }
