@@ -89,20 +89,17 @@ describe('API', () => {
   });
 
 
-  it('get people from fetch call', async () => {   
+  it('get people from fetch call', async () => {
     APP.getSpecies = jest.fn(() => true)
-    APP.numberWithCommas = jest.fn(() => '200,000')
     const expected = "https://swapi.co/api/planets/1/"
 
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
       ok: true,
-      json: () => Promise.resolve([people.results[0]])
+      json: () => Promise.resolve(planets.results[0])
     }))
 
     await APP.getPeople([people.results[0]])
     expect(window.fetch).toHaveBeenCalledWith(expected)
-
-
   });
 
 
