@@ -102,6 +102,18 @@ describe('API', () => {
     expect(window.fetch).toHaveBeenCalledWith(expected)
   });
 
+  it('get species from fetch call', async () => {
+    const expected = "https://swapi.co/api/species/1/"
+
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      ok: true,
+      json: () => Promise.resolve({name: 'graham'})
+    }))
+
+    // await APP.getSpecies([expected])
+    expect(window.fetch).toHaveBeenCalledWith(expected)
+  });
+
 
 
 })

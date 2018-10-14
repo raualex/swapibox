@@ -99,7 +99,8 @@ export const getPeople = async data => {
 }
 
 export const getSpecies = async species => {
-  const response = await fetch(species);
+  console.log(species)
+  const response = await fetch(species[0]);
   const result = await response.json()
   return result
 }
