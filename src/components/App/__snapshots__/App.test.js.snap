@@ -22,9 +22,7 @@ ShallowWrapper {
         <Nav
           getCards={[Function]}
         />,
-        <Intro
-          intro={Array []}
-        />,
+        <Loading />,
       ],
     },
     "ref": null,
@@ -53,9 +51,7 @@ ShallowWrapper {
         "instance": null,
         "key": undefined,
         "nodeType": "function",
-        "props": Object {
-          "intro": Array [],
-        },
+        "props": Object {},
         "ref": null,
         "rendered": null,
         "type": [Function],
@@ -74,9 +70,7 @@ ShallowWrapper {
           <Nav
             getCards={[Function]}
           />,
-          <Intro
-            intro={Array []}
-          />,
+          <Loading />,
         ],
       },
       "ref": null,
@@ -105,9 +99,7 @@ ShallowWrapper {
           "instance": null,
           "key": undefined,
           "nodeType": "function",
-          "props": Object {
-            "intro": Array [],
-          },
+          "props": Object {},
           "ref": null,
           "rendered": null,
           "type": [Function],

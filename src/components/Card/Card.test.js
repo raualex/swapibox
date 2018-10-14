@@ -1,7 +1,29 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from '.';
+import { shallow } from 'enzyme';
+import Card from '.';
 
-it('renders without crashing', () => {
+describe('Card', () => {
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = shallow(<Card key={'Luke'} cardData={{name: 'Luke', homeworld: 'Tatooine'}}/>);
+  });
+
+
+  it('matches the snapshot', () => { 
+    expect(wrapper).toMatchSnapshot()
+  });
+
+  it('loads with the correct state', () => {
+    const expected = {
+      favorite: false
+    }
+
+    expect(wrapper.state()).toEqual(expected)
+  });
+
+  it('renders the correct number of lis', () => {
+    expect(wrapper.find('ul').children().length).toEqual(2)
+  });
 
 });
