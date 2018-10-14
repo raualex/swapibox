@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import Nav from '.';
 
 describe('Nav', () => {
   let wrapper;
-  let mockFunction = jest.fn()
+  let mockEvent = { target: true, name: 'people' }
+  let mockFunction = jest.fn(() => { return true })
 
   beforeEach(() => {
     wrapper = shallow(<Nav getCards={mockFunction} />);
@@ -15,12 +16,12 @@ describe('Nav', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should fire people search func on button click', () => {
-    let mockEvent = { target: true, name: 'people' }
-    let handleClick = jest.fn()
-
+  it('should fire search func on button click', () => {
+    wrapper = mount(<Nav getCards={mockFunction} />)
+    
+    const spy = spyOn(wrapper.instance(), 'handleClick')
     wrapper.find('.people-btn').simulate('click', mockEvent)
-    expect(wrapper.instance().handleClick(mockEvent)).toHaveBeenCalled()
+    expect(spy).toHaveBeenCalled()
   });
 
 });

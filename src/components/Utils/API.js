@@ -24,7 +24,7 @@ export const filterCards = async (type) => {
   return result;
 }
 
-const fetchData = async (type, func) => {
+export const fetchData = async (type, func) => {
   const response = await fetch(`https://swapi.co/api/${type}`);
   const data = await response.json();
   const results = await func(data.results)
@@ -32,7 +32,7 @@ const fetchData = async (type, func) => {
   return results  
 }
 
-const checkLocalStorage = (value) => {
+export const checkLocalStorage = (value) => {
   if (localStorage.getItem('cards')) {
     const cards = JSON.parse(localStorage.getItem('cards'))
     const result = cards.filter(card => card.type === value)
@@ -43,7 +43,7 @@ const checkLocalStorage = (value) => {
   }
 }
 
-const updateFavorites = (name) => {
+export const updateFavorites = (name) => {
   const cards = JSON.parse(localStorage.getItem('cards'))
   cards.forEach(card => { 
     return card[name] ? card.favorite = !card.favorite : '' 
@@ -51,8 +51,7 @@ const updateFavorites = (name) => {
   localStorage.setItem('cards', JSON.stringify(cards))
 }
 
-const setLocalStorage = (data, type) => {
-  // debugger
+export const setLocalStorage = (data, type) => {
   const cards = JSON.parse(localStorage.getItem('cards')) || []
   const types = cards.filter(card => card.type === type)
   if (!types.length) {
@@ -64,7 +63,7 @@ const setLocalStorage = (data, type) => {
   }
 }
 
-const getFilms = async (data) => {
+export const getFilms = async (data) => {
   const result = data.map(data => {
     return {
       title: data.title,
@@ -75,19 +74,18 @@ const getFilms = async (data) => {
   return result;
 }
 
-const getFavorites = () => {
+export const getFavorites = () => {
   const cards = JSON.parse(localStorage.getItem('cards'))
   const result = cards.filter(card => card.favorite )
   return result
 }
 
-const getPeople = async data => {
+export const getPeople = async data => {
   const unresolvedPromises = data.map(async character => {
     const worldResponse = await fetch(character.homeworld)
     const homeworld = await worldResponse.json()
-    const speciesResponse = await fetch(character.species)
-    const species = await speciesResponse.json()
-
+    const species = await getSpecies(character.species)
+  
     return { name: character.name,
              homeworld: homeworld.name, 
              species: species.name, 
@@ -99,7 +97,13 @@ const getPeople = async data => {
   return Promise.all(unresolvedPromises);
 }
 
-const getPlanets = async data => {
+export const getSpecies = async species => {
+  const response = await fetch(species);
+  const result = await response.json()
+  return result
+}
+
+export const getPlanets = async data => {
   const unresolvedPromises = data.map(async planet => {
     if (planet.residents.length) {
       const residentResponse = await getResidents(planet.residents)  
@@ -124,7 +128,7 @@ const getPlanets = async data => {
   return Promise.all(unresolvedPromises);
 }
 
-const getResidents = async residents => {
+export const getResidents = async residents => {
   const unresolvedPromises = residents.map(async resident => {
     const response = await fetch(resident)
     const result = await response.json()
@@ -133,7 +137,7 @@ const getResidents = async residents => {
   return Promise.all(unresolvedPromises)
 }
 
-const getVehicles = async data => {
+export const getVehicles = async data => {
   const results = data.map( vehicle => {
     return { 
       name: vehicle.name,
@@ -147,6 +151,6 @@ const getVehicles = async data => {
   return results;
 }
 
-const numberWithCommas = (number) => {
+export const numberWithCommas = (number) => {
   return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
