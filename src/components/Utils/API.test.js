@@ -90,19 +90,19 @@ describe('API', () => {
 
 
   it('get people from fetch call', async () => {   
-    const cards = [{ name: 'harry', type: 'people', favorite: false },
-    { name: 'zonie', type: 'planets', favorite: false }] 
+    APP.getSpecies = jest.fn(() => true)
+    APP.numberWithCommas = jest.fn(() => '200,000')
+    const expected = "https://swapi.co/api/planets/1/"
 
-    const expected = [{ name: 'harry', type: 'people', favorite: false },
-    { name: 'zonie', type: 'planets', favorite: false },
-    { name: 'rover', type: 'vehicles', favorite: false }]
-    localStorage.setItem('cards', JSON.stringify(cards))
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      ok: true,
+      json: () => Promise.resolve([people.results[0]])
+    }))
+
+    await APP.getPeople([people.results[0]])
+    expect(window.fetch).toHaveBeenCalledWith(expected)
 
 
-    const data = [{ name: 'rover', type: 'vehicles', favorite: false }]
-    APP.setLocalStorage(data, 'vehicles')
-
-    expect(JSON.parse(localStorage.getItem('cards'))).toEqual(expected)
   });
 
 
