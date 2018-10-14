@@ -36,7 +36,6 @@ export const checkLocalStorage = (value) => {
   if (localStorage.getItem('cards')) {
     const cards = JSON.parse(localStorage.getItem('cards'))
     const result = cards.filter(card => card.type === value)
-    console.log(result)
     return result.length ? result : false;
   } else {
     return false
@@ -46,7 +45,9 @@ export const checkLocalStorage = (value) => {
 export const updateFavorites = (name) => {
   const cards = JSON.parse(localStorage.getItem('cards'))
   cards.forEach(card => { 
-    return card[name] ? card.favorite = !card.favorite : '' 
+    if (card.name === name) {
+      card.favorite = !card.favorite
+    } 
   })
   localStorage.setItem('cards', JSON.stringify(cards))
 }
@@ -98,7 +99,8 @@ export const getPeople = async data => {
 }
 
 export const getSpecies = async species => {
-  const response = await fetch(species);
+  console.log(species)
+  const response = await fetch(species[0]);
   const result = await response.json()
   return result
 }
