@@ -1,6 +1,53 @@
+.card {
+  width: 350px;
+  height: 530px;
+  background-color: blue;
+  border: 10px solid white;
+  margin: 25px;
+}
+
+.image-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.character-pic {
+  background-color: purple;
+  height: 330px;
+  width: 350px;
+  z-index: 998;
+  position: relative;
+}
+
+.favorite-btn {
+  background-color: yellow;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  z-index: 999;
+}
+
+.card-info {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.character-name {
+  text-align: center;
+  margin: 5px 0 0 0;
+  padding: none;
+}
+
 ul {
   list-style: none;
+  /* margin: 0; */
+  padding: 0;
 }
-li {
+li, h4 {
   color: white;
 }
+

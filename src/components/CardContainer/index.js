@@ -2,6 +2,8 @@ import React from 'react';
 import Card from '../Card'
 import Intro from '../Intro'
 
+import './CardContainer.css'
+
 const CardContainer = ({ data }) => {
   const allCards = data.map(card => <Card key={card.name} cardData={card}/>)
   return (
