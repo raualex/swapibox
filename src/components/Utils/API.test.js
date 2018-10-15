@@ -4,12 +4,12 @@ import {films, planets, people, vehicles } from './mockData'
 
 describe('API', () => {
 
-  it('should fetch data based on type passed in', async () => {
+  // it('should fetch data based on type passed in', async () => {
 
     
-    await APP.filterCards('vehicles')
-    expect(fetchData).toHaveBeenCalled()
-  });
+  //   await APP.filterCards('vehicles')
+  //   expect(fetchData).toHaveBeenCalled()
+  // });
   
   it('should fetch vehicles with correct params', async () => {    
     const expected = "https://swapi.co/api/vehicles"
