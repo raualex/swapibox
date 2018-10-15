@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow, mount } from 'enzyme';
+import { people } from '../Utils/mockData'
 import App from '.';
 
 describe('App', () => {
@@ -21,6 +22,12 @@ describe('App', () => {
     }
 
     expect(wrapper.state()).toEqual(expected)
+  });
+
+  it('getCards should set state if type isn\'t favorite', async () => {
+    wrapper.filterCards = jest.fn((type) => { return people.results })
+    await wrapper.instance().getCards('people')
+    expect(wrapper.state()).not.toEqual({ data: [] })
   });
 
   it('fires getCards when mounted', () => {

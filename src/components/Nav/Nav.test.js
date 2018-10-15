@@ -5,7 +5,7 @@ import Nav from '.';
 
 describe('Nav', () => {
   let wrapper;
-  let mockEvent = { target: true, name: 'people' }
+  let mockEvent = { target: { name: 'people' } }
   let mockFunction = jest.fn(() => { return true })
 
   beforeEach(() => {
@@ -16,12 +16,11 @@ describe('Nav', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should fire search func on button click', () => {
-    wrapper = mount(<Nav getCards={mockFunction} />)
-    
-    const spy = spyOn(wrapper.instance(), 'handleClick')
+  it('should update state on button click', () => {
+    let expectedState = { isActive: 'people' }
+    wrapper.setState({ isActive: '' })
     wrapper.find('.people-btn').simulate('click', mockEvent)
-    expect(spy).toHaveBeenCalled()
+    expect(wrapper.state()).toEqual(expectedState)
   });
 
 });

@@ -4,6 +4,12 @@ import {films, planets, people, vehicles } from './mockData'
 
 describe('API', () => {
 
+  // it('should fetch data based on type passed in', async () => {
+
+    
+  //   await APP.filterCards('vehicles')
+  //   expect(fetchData).toHaveBeenCalled()
+  // });
   
   it('should fetch vehicles with correct params', async () => {    
     const expected = "https://swapi.co/api/vehicles"
@@ -88,6 +94,17 @@ describe('API', () => {
     expect(JSON.parse(localStorage.getItem('cards'))).toEqual(expected)
   });
 
+  it('get species from fetch call', async () => {
+    const expected = ["https://swapi.co/api/species/1/"]
+
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      ok: true,
+      json: () => Promise.resolve({name: 'graham'})
+    }))
+
+    await APP.getSpecies(expected)
+    expect(window.fetch).toHaveBeenCalledWith(expected[0])
+  });
 
   it('get people from fetch call', async () => {
     APP.getSpecies = jest.fn(() => true)
@@ -102,18 +119,50 @@ describe('API', () => {
     expect(window.fetch).toHaveBeenCalledWith(expected)
   });
 
-  it('get species from fetch call', async () => {
-    const expected = "https://swapi.co/api/species/1/"
-
+  it('get residents from fetch call', async () => {
+    const expected = "https://swapi.co/api/people/5/"
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
       ok: true,
-      json: () => Promise.resolve({name: 'graham'})
+      json: () => Promise.resolve(people.results[4])
     }))
 
-    // await APP.getSpecies([expected])
+    await APP.getResidents([planets.results[0].residents[0]])
     expect(window.fetch).toHaveBeenCalledWith(expected)
   });
 
+  it('should return formatted planet data with empty residents array', async () => {
+    APP.getResidents = jest.fn(() => true)
+    const mockPlanet = { name: "Yavin IV", terrain: "jungle, rainforests", climate: "temperate, tropical", population: "1,000", residents: "none", type: "planets", favorite: false }
+    let cleanedPlanet = await APP.getPlanets([planets.results[1]])
+    expect(cleanedPlanet).toEqual([mockPlanet])
+  });
 
+  it('should return formatted planet data with full residents array', async () => {
+    const mockPlanet = { name: "Alderaan", terrain: "grasslands, mountains", climate: "temperate", population: "2,000,000,000", residents: ["Leia Organa", "Leia Organa", "Leia Organa"], type: "planets", favorite: false }
+    let cleanedPlanet = await APP.getPlanets([planets.results[0]])
+    expect(cleanedPlanet).toEqual([mockPlanet])
+  });
+
+  it('get vehicles should return formatted vehilce data', async () => {
+    const mockVehicle = { name: "Sand Crawler", model: "Digger Crawler", class: "wheeled", Passengers: "30", type: "vehicles", favorite: false }
+    let cleanedVehicle = await APP.getVehicles([vehicles.results[0]])
+    expect(cleanedVehicle).toEqual([mockVehicle])    
+  });
+
+  it('numberWithCommas func should clean numbers entered in', () => {
+    let mockNum = "5,000,000"
+    let cleanedNum = APP.numberWithCommas("5000000")
+    expect(cleanedNum).toEqual(mockNum)
+  });
+
+  it('getFavorites should only return objects with a favorite of true', () => {
+    const mockVehicle = { name: "Sand Crawler", model: "Digger Crawler", class: "wheeled", Passengers: "30", type: "vehicles", favorite: false }
+    const mockPlanet = { name: "Yavin IV", terrain: "jungle, rainforests", climate: "temperate, tropical", population: "1,000", residents: "none", type: "planets", favorite: false }
+    const mockPerson = { name: "Darth Vader", homeworld: "Tatooine", species: "Human", population: "200,000", type: "people", favorite: true }
+    localStorage.clear()
+    localStorage.setItem('cards', JSON.stringify([mockVehicle, mockPlanet, mockPerson]))
+    let favoriteItem = APP.getFavorites()
+    expect(favoriteItem).toEqual([mockPerson])
+  });
 
 })

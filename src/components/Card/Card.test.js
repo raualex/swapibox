@@ -6,7 +6,7 @@ describe('Card', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<Card key={'Luke'} cardData={{name: 'Luke', homeworld: 'Tatooine'}}/>);
+    wrapper = shallow(<Card key={'Luke'} cardData={{name: 'Luke', homeworld: 'Tatooine', residents: ['Leia', 'Lando', 'Dave'], favorite: false }}/>);
   });
 
 
@@ -23,7 +23,7 @@ describe('Card', () => {
   });
 
   it('renders the correct number of lis', () => {
-    expect(wrapper.find('ul').children().length).toEqual(2)
+    expect(wrapper.find('ul').children().length).toEqual(3)
   });
 
 });
