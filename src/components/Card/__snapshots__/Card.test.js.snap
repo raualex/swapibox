@@ -6,8 +6,14 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <Card
     cardData={
       Object {
+        "favorite": false,
         "homeworld": "Tatooine",
         "name": "Luke",
+        "residents": Array [
+          "Leia",
+          "Lando",
+          "Dave",
+        ],
       }
     }
   />,
@@ -43,6 +49,12 @@ ShallowWrapper {
               : 
               Tatooine
             </li>
+            <li>
+              residents
+              : 
+              Leia, Lando, Dave
+            </li>
+            
           </ul>
         </div>,
       ],
@@ -78,6 +90,12 @@ ShallowWrapper {
               : 
               Tatooine
             </li>
+            <li>
+              residents
+              : 
+              Leia, Lando, Dave
+            </li>
+            
           </ul>,
           "className": "card-info",
         },
@@ -98,13 +116,19 @@ ShallowWrapper {
                 : 
                 Tatooine
               </li>,
+              <li>
+                residents
+                : 
+                Leia, Lando, Dave
+              </li>,
+              "",
             ],
           },
           "ref": null,
           "rendered": Array [
             Object {
               "instance": null,
-              "key": "1539546680876",
+              "key": "1539564172309",
               "nodeType": "host",
               "props": Object {
                 "children": Array [
@@ -123,7 +147,7 @@ ShallowWrapper {
             },
             Object {
               "instance": null,
-              "key": "1539546680877",
+              "key": "1539564172310",
               "nodeType": "host",
               "props": Object {
                 "children": Array [
@@ -140,6 +164,26 @@ ShallowWrapper {
               ],
               "type": "li",
             },
+            Object {
+              "instance": null,
+              "key": "1539564172311",
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "residents",
+                  ": ",
+                  "Leia, Lando, Dave",
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "residents",
+                ": ",
+                "Leia, Lando, Dave",
+              ],
+              "type": "li",
+            },
+            "",
           ],
           "type": "ul",
         },
@@ -173,6 +217,12 @@ ShallowWrapper {
                 : 
                 Tatooine
               </li>
+              <li>
+                residents
+                : 
+                Leia, Lando, Dave
+              </li>
+              
             </ul>
           </div>,
         ],
@@ -208,6 +258,12 @@ ShallowWrapper {
                 : 
                 Tatooine
               </li>
+              <li>
+                residents
+                : 
+                Leia, Lando, Dave
+              </li>
+              
             </ul>,
             "className": "card-info",
           },
@@ -228,13 +284,19 @@ ShallowWrapper {
                   : 
                   Tatooine
                 </li>,
+                <li>
+                  residents
+                  : 
+                  Leia, Lando, Dave
+                </li>,
+                "",
               ],
             },
             "ref": null,
             "rendered": Array [
               Object {
                 "instance": null,
-                "key": "1539546680876",
+                "key": "1539564172309",
                 "nodeType": "host",
                 "props": Object {
                   "children": Array [
@@ -253,7 +315,7 @@ ShallowWrapper {
               },
               Object {
                 "instance": null,
-                "key": "1539546680877",
+                "key": "1539564172310",
                 "nodeType": "host",
                 "props": Object {
                   "children": Array [
@@ -270,6 +332,26 @@ ShallowWrapper {
                 ],
                 "type": "li",
               },
+              Object {
+                "instance": null,
+                "key": "1539564172311",
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "residents",
+                    ": ",
+                    "Leia, Lando, Dave",
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  "residents",
+                  ": ",
+                  "Leia, Lando, Dave",
+                ],
+                "type": "li",
+              },
+              "",
             ],
             "type": "ul",
           },
