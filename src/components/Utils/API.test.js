@@ -3,13 +3,6 @@ import * as APP from './API'
 import {films, planets, people, vehicles } from './mockData'
 
 describe('API', () => {
-
-  // it('should fetch data based on type passed in', async () => {
-
-    
-  //   await APP.filterCards('vehicles')
-  //   expect(fetchData).toHaveBeenCalled()
-  // });
   
   it('should fetch vehicles with correct params', async () => {    
     const expected = "https://swapi.co/api/vehicles"
@@ -32,6 +25,13 @@ describe('API', () => {
 
     await APP.fetchData('people', mockFunc)
     expect(window.fetch).toHaveBeenCalledWith(expected)
+  });
+
+  it('should fetch data with different params based on type passed in', async () => {
+    const spy = spyOn(APP, 'fetchData')
+    
+    await APP.filterCards('vehicles')
+    await expect(spy).toHaveBeenCalledWith('vehicles', APP.getVehicles)
   });
 
   it('should return false if there is no local storage', async () => {    
