@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Card.css'
+import cardImage from './../Utils/cardImage.js';
 
-import character from '../Utils/assets/cards/alderaan.jpg'
 
 
 class Card extends Component {
@@ -28,12 +28,12 @@ class Card extends Component {
       }
       return '';
     })
-    console.log(name)
+
     return(
       <div className='card'>
         <div className='image-container'>
           <div className='favorite-btn'></div>
-          <img src={character} alt={name} className='character-pic'/>
+          <img src={`${cardImage[name]}`} alt={name} className='character-pic'/>
         </div>
         <div className='card-info'>
           <h4 className='character-name'>{name.toUpperCase()}</h4>
