@@ -45,7 +45,7 @@ class Nav extends Component {
           className="favorites-btn" 
           onClick={this.handleClick}>FAVORITES 
             <span>
-              {favorites ? favorites : '' }
+              {favorites}
             </span>
         </button>
       </div>

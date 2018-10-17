@@ -47,3 +47,12 @@ button:focus {
   outline: none;
 }
 
+span {
+  margin-left: 10px;
+  background-color: black;
+  color: #feda4a;
+  border-radius: 5px;
+  padding: 1px 6px 1px 6px;
+  width: 5px;
+}
+
