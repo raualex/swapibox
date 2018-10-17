@@ -54,7 +54,8 @@ class Nav extends Component {
 }
 
 Nav.propTypes = {
-  getCards: PropTypes.func.isRequired
+  getCards: PropTypes.func.isRequired,
+  favorites: PropTypes.number.isRequired
 }
 
 export default Nav;
