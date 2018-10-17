@@ -24,7 +24,7 @@ class App extends Component {
   getCards = async (type) =>  {
     this.setState({ data: [] });
     const data = await filterCards(type);
-    const types = ['films', 'people', 'vehicles', 'planets']
+    const types = ['films', 'people', 'vehicles', 'planets', 'favorites']
     if (types.includes(type)) {
       this.setState({ data });
     } 
