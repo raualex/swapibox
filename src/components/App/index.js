@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-
 import Header from '../Header';
 import Nav from '../Nav';
 import Loading from '../Loading';
 import CardContainer from '../CardContainer';
-
 import { filterCards } from '../Utils/API';
 import './App.css';
 

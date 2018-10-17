@@ -25,29 +25,31 @@ ShallowWrapper {
           name="people"
           onClick={[Function]}
         >
-          People
+          PEOPLE
         </button>,
         <button
           className="planets-btn "
           name="planets"
           onClick={[Function]}
         >
-          Planets
+          PLANETS
         </button>,
         <button
           className="vehicles-btn "
           name="vehicles"
           onClick={[Function]}
         >
-          Vehicles
+          VEHICLES
         </button>,
         <button
           className="favorites-btn"
+          name="favorites"
+          onClick={[Function]}
         >
-          Favorites
+          FAVORITES
         </button>,
       ],
-      "className": "button-container",
+      "className": "button-container navbar",
     },
     "ref": null,
     "rendered": Array [
@@ -56,13 +58,13 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "People",
+          "children": "PEOPLE",
           "className": "people-btn ",
           "name": "people",
           "onClick": [Function],
         },
         "ref": null,
-        "rendered": "People",
+        "rendered": "PEOPLE",
         "type": "button",
       },
       Object {
@@ -70,13 +72,13 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "Planets",
+          "children": "PLANETS",
           "className": "planets-btn ",
           "name": "planets",
           "onClick": [Function],
         },
         "ref": null,
-        "rendered": "Planets",
+        "rendered": "PLANETS",
         "type": "button",
       },
       Object {
@@ -84,13 +86,13 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "Vehicles",
+          "children": "VEHICLES",
           "className": "vehicles-btn ",
           "name": "vehicles",
           "onClick": [Function],
         },
         "ref": null,
-        "rendered": "Vehicles",
+        "rendered": "VEHICLES",
         "type": "button",
       },
       Object {
@@ -98,11 +100,13 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "Favorites",
+          "children": "FAVORITES",
           "className": "favorites-btn",
+          "name": "favorites",
+          "onClick": [Function],
         },
         "ref": null,
-        "rendered": "Favorites",
+        "rendered": "FAVORITES",
         "type": "button",
       },
     ],
@@ -120,29 +124,31 @@ ShallowWrapper {
             name="people"
             onClick={[Function]}
           >
-            People
+            PEOPLE
           </button>,
           <button
             className="planets-btn "
             name="planets"
             onClick={[Function]}
           >
-            Planets
+            PLANETS
           </button>,
           <button
             className="vehicles-btn "
             name="vehicles"
             onClick={[Function]}
           >
-            Vehicles
+            VEHICLES
           </button>,
           <button
             className="favorites-btn"
+            name="favorites"
+            onClick={[Function]}
           >
-            Favorites
+            FAVORITES
           </button>,
         ],
-        "className": "button-container",
+        "className": "button-container navbar",
       },
       "ref": null,
       "rendered": Array [
@@ -151,13 +157,13 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "People",
+            "children": "PEOPLE",
             "className": "people-btn ",
             "name": "people",
             "onClick": [Function],
           },
           "ref": null,
-          "rendered": "People",
+          "rendered": "PEOPLE",
           "type": "button",
         },
         Object {
@@ -165,13 +171,13 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "Planets",
+            "children": "PLANETS",
             "className": "planets-btn ",
             "name": "planets",
             "onClick": [Function],
           },
           "ref": null,
-          "rendered": "Planets",
+          "rendered": "PLANETS",
           "type": "button",
         },
         Object {
@@ -179,13 +185,13 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "Vehicles",
+            "children": "VEHICLES",
             "className": "vehicles-btn ",
             "name": "vehicles",
             "onClick": [Function],
           },
           "ref": null,
-          "rendered": "Vehicles",
+          "rendered": "VEHICLES",
           "type": "button",
         },
         Object {
@@ -193,11 +199,13 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "Favorites",
+            "children": "FAVORITES",
             "className": "favorites-btn",
+            "name": "favorites",
+            "onClick": [Function],
           },
           "ref": null,
-          "rendered": "Favorites",
+          "rendered": "FAVORITES",
           "type": "button",
         },
       ],
