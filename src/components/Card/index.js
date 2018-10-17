@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Card.css'
 import cardImage from './../Utils/cardImage.js';
-import { updateFavorites } from '../Utils/API';
+import { filterCards } from '../Utils/API';
 import PropTypes from 'prop-types';
 
 
@@ -18,14 +18,16 @@ class Card extends Component {
     return favorite ? this.setState({ favorite }) : null
   }
 
-  updateFavorites = name => {
-    updateFavorites(name)
+  updateFavorites = (name, getFavorites) => {
+    filterCards(name)
     this.setState( {favorite: !this.state.favorite} )
+    getFavorites()
   }
 
   render() {
     const { favorite } = this.state;
-    const { cardData } = this.props
+    const { cardData, getFavorites } = this.props
+    console.log(typeof getFavorites)
     const { name } = this.props.cardData;
     const description = Object.keys(cardData).map((spec, index) => {
       if (spec !== 'type' && spec !== 'name' && spec !== 'favorite' && !Array.isArray(cardData[spec])) {
@@ -39,7 +41,7 @@ class Card extends Component {
     return(
       <div className='card'>
         <div className='image-container'>
-          <div onClick={() => this.updateFavorites(name)}
+          <div onClick={() => this.updateFavorites(name, getFavorites)}
           className='favorite-btn'
           >
             <img className='star' alt='star' src={`${cardImage[favorite]}`}/>

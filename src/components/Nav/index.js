@@ -13,7 +13,6 @@ class Nav extends Component {
 
   handleClick = (event) => {
     const { name } = event.target
-
     this.setState({
       isActive: name
     }, () => this.props.getCards(this.state.isActive))
@@ -21,6 +20,7 @@ class Nav extends Component {
 
   render() {
     const {isActive} = this.state
+    const { favorites } = this.props
 
     return (
       <div className="button-container navbar">
@@ -43,7 +43,11 @@ class Nav extends Component {
         <button 
           name="favorites"
           className="favorites-btn" 
-          onClick={this.handleClick}>FAVORITES</button>
+          onClick={this.handleClick}>FAVORITES 
+            <span>
+              {favorites}
+            </span>
+        </button>
       </div>
     )
   }

@@ -3,7 +3,7 @@ import Header from '../Header';
 import Nav from '../Nav';
 import Loading from '../Loading';
 import CardContainer from '../CardContainer';
-import { filterCards } from '../Utils/API';
+import { filterCards, getFavorites } from '../Utils/API';
 import './App.css';
 
 
@@ -12,11 +12,13 @@ class App extends Component {
     super()
     this.state = {
       data: [],
+      favorites: 0
     }
   }
 
   componentDidMount() {
     this.getCards('films');
+    this.getFavorites()
   }
 
   getCards = async (type) =>  {
@@ -28,15 +30,20 @@ class App extends Component {
     } 
   }
 
+  getFavorites = () => {
+    const favorites = getFavorites().length
+    this.setState({ favorites });
+  }
+
   render() {
-    const { data } = this.state
+    const { data, favorites } = this.state
     return (
       <div>
         <Header />
-        <Nav getCards={this.getCards} />
+        <Nav getCards={this.getCards} favorites={favorites} />
         {
           data.length
-            ? <CardContainer data={data} /> 
+            ? <CardContainer data={data} getFavorites={this.getFavorites} /> 
             : <Loading/>    
         }
       </div>
