@@ -15,7 +15,7 @@ const Intro = ({ films }) => {
       <Crawl
         containerStyles={{background: 'transparent'}}
         textContainerStyles={{height: '200px', perspective: '375px'}}
-        titleStyles={{fontSize: '125%'}}
+        titleStyles={{fontSize: '165%'}}
         fadeStyles={{minHeight: '50vh', top: '-100px'}}
         title={films[randomNumber].title.toUpperCase()}
         // subTitle={films[randomNumber].release_date.slice(0, 4)}

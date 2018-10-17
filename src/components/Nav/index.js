@@ -22,27 +22,27 @@ class Nav extends Component {
     const {isActive} = this.state
 
     return (
-      <div className="button-container">
+      <div className="button-container navbar">
         <button 
           name="people"
           className={`people-btn ${isActive === 'people' ? 'selected' : ''}`}
           onClick={this.handleClick}
-        >People
+        >PEOPLE
         </button>
         <button 
           name="planets"
           className={`planets-btn ${isActive === 'planets' ? 'selected' : ''}`}
           onClick={this.handleClick}
-        >Planets</button>
+        >PLANETS</button>
         <button 
           name="vehicles"
           className={`vehicles-btn ${isActive === 'vehicles' ? 'selected' : ''}`}
           onClick={this.handleClick}
-        >Vehicles</button>
+        >VEHICLES</button>
         <button 
           name="favorites"
           className="favorites-btn" 
-          onClick={this.handleClick}>Favorites</button>
+          onClick={this.handleClick}>FAVORITES</button>
       </div>
     )
   }
