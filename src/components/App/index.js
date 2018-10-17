@@ -3,7 +3,7 @@ import Header from '../Header';
 import Nav from '../Nav';
 import Loading from '../Loading';
 import CardContainer from '../CardContainer';
-import { filterCards } from '../Utils/API';
+import { filterCards, getFavorites } from '../Utils/API';
 import './App.css';
 
 
@@ -18,16 +18,21 @@ class App extends Component {
 
   componentDidMount() {
     this.getCards('films');
+    this.getFavorites()
   }
 
   getCards = async (type) =>  {
-    const favorites = filterCards('favorites').length
-    this.setState({ data: [], favorites });
+    this.setState({ data: [] });
     const data = await filterCards(type);
     const types = ['films', 'people', 'vehicles', 'planets', 'favorites']
     if (types.includes(type)) {
       this.setState({ data });
     } 
+  }
+
+  getFavorites = () => {
+    const favorites = getFavorites().length
+    this.setState({ favorites });
   }
 
   render() {
@@ -38,7 +43,7 @@ class App extends Component {
         <Nav getCards={this.getCards} favorites={favorites} />
         {
           data.length
-            ? <CardContainer data={data} /> 
+            ? <CardContainer data={data} getFavorites={this.getFavorites} /> 
             : <Loading/>    
         }
       </div>

@@ -20,6 +20,7 @@ class Nav extends Component {
 
   render() {
     const {isActive} = this.state
+    const { favorites } = this.props
 
     return (
       <div className="button-container navbar">
@@ -42,7 +43,7 @@ class Nav extends Component {
         <button 
           name="favorites"
           className="favorites-btn" 
-          onClick={this.handleClick}>FAVORITES</button>
+          onClick={this.handleClick}>FAVORITES {favorites}</button>
       </div>
     )
   }
