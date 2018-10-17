@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Card.css'
 import cardImage from './../Utils/cardImage.js';
+import { updateFavorites } from '../Utils/API';
 
 
 
@@ -32,7 +33,8 @@ class Card extends Component {
     return(
       <div className='card'>
         <div className='image-container'>
-          <div className='favorite-btn'></div>
+          <div className='favorite-btn' 
+            onClick={() => updateFavorites(name)}></div>
           <img src={`${cardImage[name]}`} alt={name} className='character-pic'/>
         </div>
         <div className='card-info'>

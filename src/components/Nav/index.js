@@ -39,7 +39,10 @@ class Nav extends Component {
           className={`vehicles-btn ${isActive === 'vehicles' ? 'selected' : ''}`}
           onClick={this.handleClick}
         >Vehicles</button>
-        <button className="favorites-btn">Favorites</button>
+        <button 
+          name="favorites"
+          className="favorites-btn" 
+          onClick={this.handleClick}>Favorites</button>
       </div>
     )
   }
