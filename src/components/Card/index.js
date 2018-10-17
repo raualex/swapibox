@@ -18,7 +18,13 @@ class Card extends Component {
     return favorite ? this.setState({ favorite }) : null
   }
 
+  updateFavorites = name => {
+    updateFavorites(name)
+    this.setState( {favorite: !this.state.favorite} )
+  }
+
   render() {
+    const { favorite } = this.state;
     const { cardData } = this.props
     const { name } = this.props.cardData;
     const description = Object.keys(cardData).map((spec, index) => {
@@ -33,8 +39,11 @@ class Card extends Component {
     return(
       <div className='card'>
         <div className='image-container'>
-          <div className='favorite-btn' 
-            onClick={() => updateFavorites(name)}></div>
+          <div onClick={() => this.updateFavorites(name)}
+          className='favorite-btn'
+          >
+            <img className='star' alt='star' src={`${cardImage[favorite]}`}/>
+          </div>
           <img src={`${cardImage[name]}`} alt={name} className='character-pic'/>
         </div>
         <div className='card-info'>

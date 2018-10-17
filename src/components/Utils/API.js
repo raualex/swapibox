@@ -1,9 +1,11 @@
 export const filterCards = async (type) => {
   let result;
+
+  if (checkLocalStorage(type)) {
+    return checkLocalStorage(type)
+  }
+
   switch (type) {
-    case checkLocalStorage(type):
-      result = checkLocalStorage(type)
-      break;
     case 'films':
       result = await fetchData(type, getFilms)
       break;
