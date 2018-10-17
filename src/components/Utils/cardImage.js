@@ -28,7 +28,9 @@ const cardImage = {
   'AT-AT': require('../Utils/assets/cards/at-at.jpg'),
   'AT-ST': require('../Utils/assets/cards/at-st.jpg'),
   'Storm IV Twin-Pod cloud car': require('../Utils/assets/cards/pod.jpg'),
-  'Sail barge': require('../Utils/assets/cards/sail.jpg')
+  'Sail barge': require('../Utils/assets/cards/sail.jpg'),
+  true: require('../Utils/assets/cards/star-true.svg'),
+  false: require('../Utils/assets/cards/star-false.svg')
 }
 
 export default cardImage;

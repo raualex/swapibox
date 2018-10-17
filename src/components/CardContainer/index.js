@@ -5,7 +5,6 @@ import Intro from '../Intro'
 import './CardContainer.css'
 
 const CardContainer = ({ data }) => {
-  console.log(data)
   const allCards = data.map(card => <Card key={card.name} cardData={card}/>)
   return (
     <div>
