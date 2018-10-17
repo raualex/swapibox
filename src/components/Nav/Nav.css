@@ -1,20 +1,49 @@
 .button-container {
   align-items: center;
-  background-color: #000000;
-  border: solid 4px #feda4a;
+  background-color: #feda4a;
+  border-radius: 35px;
   display: flex;
-  height: 100px;
+  height: 70px;
   justify-content: space-around;
+  margin: 0 14% 0 14%;
 }
+
+.navbar {
+  background: #feda4a; /* Old browsers */
+  background: -moz-linear-gradient(top,  #feda4a 0%, #feda4a 8%, #0e0e0e 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#feda4a), color-stop(8%,#46ddc9), color-stop(100%,#0e0e0e)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #feda4a 0%,#feda4a 8%,#0e0e0e 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #feda4a 0%,#feda4a 8%,#0e0e0e 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #feda4a 0%,#feda4a 8%,#0e0e0e 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #feda4a 0%,#feda4a 8%,#0e0e0e 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feda4a', endColorstr='#0e0e0e',GradientType=0 ); /* IE6-9 */ 
+ }
 
 .people-btn,
 .planets-btn,
 .vehicles-btn,
 .favorites-btn {
-  background-color: #000000;
-  border: solid 4px #feda4a;
-  color: #feda4a;
+  height: 100%;
+  background-color: transparent;
+  border: solid 1px #000000;
+  border-top: none;
+  border-bottom: none;
+  border-left: none;
+  color: #000000;
   font-size: 1.25em;
-  height: 50px;
-  width: 140px;
+  font-weight: 600;
+  width: 100%;
 }
+
+.favorites-btn {
+  border-right: none;
+}
+
+button:active {
+  filter: brightness(50%)
+}
+
+button:focus {
+  outline: none;
+}
+
