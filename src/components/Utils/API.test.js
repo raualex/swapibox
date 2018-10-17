@@ -85,10 +85,11 @@ describe('API', () => {
     const expected = [{ name: 'harry', type: 'people', favorite: false },
     { name: 'zonie', type: 'planets', favorite: false },
     { name: 'rover', type: 'vehicles', favorite: false }]
+
     localStorage.setItem('cards', JSON.stringify(cards))
 
-
     const data = [{ name: 'rover', type: 'vehicles', favorite: false }]
+    
     APP.setLocalStorage(data, 'vehicles')
 
     expect(JSON.parse(localStorage.getItem('cards'))).toEqual(expected)
