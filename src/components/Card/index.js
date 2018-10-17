@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Card.css'
 import cardImage from './../Utils/cardImage.js';
-import { updateFavorites } from '../Utils/API';
+import { filterCards } from '../Utils/API';
 import PropTypes from 'prop-types';
 
 
@@ -19,7 +19,7 @@ class Card extends Component {
   }
 
   updateFavorites = name => {
-    updateFavorites(name)
+    filterCards(name)
     this.setState( {favorite: !this.state.favorite} )
   }
 

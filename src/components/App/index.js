@@ -12,6 +12,7 @@ class App extends Component {
     super()
     this.state = {
       data: [],
+      favorites: 0
     }
   }
 
@@ -20,7 +21,8 @@ class App extends Component {
   }
 
   getCards = async (type) =>  {
-    this.setState({ data: [] });
+    const favorites = filterCards('favorites').length
+    this.setState({ data: [], favorites });
     const data = await filterCards(type);
     const types = ['films', 'people', 'vehicles', 'planets', 'favorites']
     if (types.includes(type)) {
@@ -29,11 +31,11 @@ class App extends Component {
   }
 
   render() {
-    const { data } = this.state
+    const { data, favorites } = this.state
     return (
       <div>
         <Header />
-        <Nav getCards={this.getCards} />
+        <Nav getCards={this.getCards} favorites={favorites} />
         {
           data.length
             ? <CardContainer data={data} /> 
