@@ -1,10 +1,8 @@
 import React from 'react';
-
 import Crawl from 'react-star-wars-crawl';
 import 'react-star-wars-crawl/lib/index.css'
-
 import './Intro.css';
-
+import PropTypes from 'prop-types';
 
 const Intro = ({ films }) => {
   const randomNumber = Math.round(Math.random() * films.length) - 1;
@@ -24,6 +22,10 @@ const Intro = ({ films }) => {
       }
     </div>
   )
+}
+
+Intro.propTypes = {
+  films: PropTypes.array.isRequired
 }
 
 export default Intro;

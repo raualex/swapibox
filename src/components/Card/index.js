@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Card.css'
 import cardImage from './../Utils/cardImage.js';
 import { updateFavorites } from '../Utils/API';
-
+import PropTypes from 'prop-types';
 
 
 class Card extends Component {
@@ -55,6 +55,10 @@ class Card extends Component {
       </div>
     )
   }
+}
+
+Card.propTypes = {
+  cardData: PropTypes.object.isRequired
 }
 
 export default Card;

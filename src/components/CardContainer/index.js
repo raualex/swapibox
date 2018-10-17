@@ -1,8 +1,8 @@
 import React from 'react';
 import Card from '../Card'
 import Intro from '../Intro'
-
 import './CardContainer.css'
+import PropTypes from 'prop-types';
 
 const CardContainer = ({ data }) => {
   const allCards = data.map(card => <Card key={card.name} cardData={card}/>)
@@ -18,6 +18,10 @@ const CardContainer = ({ data }) => {
       }
     </div>
   )
+}
+
+CardContainer.propTypes = {
+  data: PropTypes.array.isRequired
 }
 
 export default CardContainer;

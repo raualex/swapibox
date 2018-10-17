@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Nav.css';
+import PropTypes from 'prop-types';
 
 class Nav extends Component {
   constructor(props) {
@@ -46,6 +47,10 @@ class Nav extends Component {
       </div>
     )
   }
+}
+
+Nav.propTypes = {
+  getCards: PropTypes.func.isRequired
 }
 
 export default Nav;
