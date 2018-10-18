@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-dom'
+import { Route } from 'react-router-dom'
 
 import Header from '../Header';
 import Nav from '../Nav';
@@ -43,11 +43,17 @@ class App extends Component {
       <div>
         <Header />
         <Nav getCards={this.getCards} favorites={favorites} />
-        {
+       
+        <Route  exact path='/people' 
+             render={() => <CardContainer data={data} getFavorites={this.getFavorites} /> }
+            
+        />
+       
+        {/* {
           data.length
             ? <CardContainer data={data} getFavorites={this.getFavorites} /> 
             : <Loading/>    
-        }
+        } */}
       </div>
     );
   }

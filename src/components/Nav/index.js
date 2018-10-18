@@ -21,7 +21,7 @@ class Nav extends Component {
   }
 
   render() {
-    const {isActive} = this.state
+   
     const { favorites } = this.props
 
     return (
