@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Route } from 'react-dom'
+
 import Header from '../Header';
 import Nav from '../Nav';
 import Loading from '../Loading';
