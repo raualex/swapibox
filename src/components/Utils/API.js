@@ -78,7 +78,7 @@ export const getFilms = async (data) => {
 }
 
 export const getFavorites = () => {
-  const cards = JSON.parse(localStorage.getItem('cards'))
+  const cards = JSON.parse(localStorage.getItem('cards')) || []
   const result = cards.filter(card => card.favorite )
   return result
 }

@@ -1,4 +1,6 @@
 import React from 'react';
+
+import Loading from '../Loading';
 import Card from '../Card'
 import Intro from '../Intro'
 import './CardContainer.css'
@@ -6,6 +8,10 @@ import PropTypes from 'prop-types';
 
 const CardContainer = ({ data, getFavorites }) => {
   const allCards = data.map(card => <Card key={card.name} cardData={card} getFavorites={getFavorites}/>)
+  if (!data.length) {
+          
+    return (<Loading />)
+  }
   return (
     <div>
       { data[0].type !== 'films' &&
