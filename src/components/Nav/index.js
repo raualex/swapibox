@@ -26,37 +26,37 @@ class Nav extends Component {
 
     return (
       <div className="button-container navbar">
-        <NavLink to='/people'>
-          <button 
+        <NavLink to='/people'
+       
             name="people"
             className='people-btn'
             onClick={this.handleClick}
           >PEOPLE
-          </button>
+     
         </NavLink>
-        <NavLink to='/planets'>
-          <button 
+        <NavLink to='/planets'
+      
             name="planets"
             className='planets-btn'
             onClick={this.handleClick}
-          >PLANETS</button>
+          >PLANETS
         </NavLink>
-         <NavLink to='/vehicles'>
-          <button 
+         <NavLink to='/vehicles'
+       
             name="vehicles"
             className='vehicles-btn'
             onClick={this.handleClick}
-          >VEHICLES</button>
+          >VEHICLES
         </NavLink>
-         <NavLink to='/favorites'>
-          <button 
+         <NavLink to='/favorites'
+        
             name="favorites"
             className='favorites-btn' 
             onClick={this.handleClick}>FAVORITES 
               <span>
                 {favorites}
               </span>
-          </button>
+     
         </NavLink>
       </div>
     )

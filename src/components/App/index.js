@@ -42,8 +42,8 @@ class App extends Component {
       <div>
         <Header />
         <Nav getCards={this.getCards} favorites={favorites} />
-     
-        <Route path="(/ |/people|/planets|/vehicles|/favorites)" 
+        
+        <Route path={('/'||'/people'||'/planets'||'/vehicles'||'/favorites')}
             render={() => <CardContainer data={data} getFavorites={this.getFavorites} /> }    
         />
 
