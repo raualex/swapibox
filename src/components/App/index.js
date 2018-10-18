@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom'
+import { Route, withRouter } from 'react-router-dom'
 
 import Header from '../Header';
 import Nav from '../Nav';
@@ -18,12 +18,22 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.getCards('films');
+    let type = this.props.location.pathname.slice(1) || 'films' 
+    this.getCards(type);
     this.getFavorites()
   }
 
+  updateCards = () => {
+    let type = this.props.location.pathname.slice(1) || 'films' 
+    if (this.state.data.length && type !== this.state.data[0].type) {
+      this.getCards(type)
+    } else {
+      return null;
+    }
+  }
+
   getCards = async (type) =>  {
-    this.setState({ data: [] });
+    await this.setState({ data: [] });
     const data = await filterCards(type);
     const types = ['films', 'people', 'vehicles', 'planets', 'favorites']
     if (types.includes(type)) {
@@ -38,18 +48,19 @@ class App extends Component {
 
   render() {
     const { data, favorites } = this.state
+    this.updateCards();
     return (
       <div>
         <Header />
         <Nav getCards={this.getCards} favorites={favorites} />
-        
         <Route path={('/'||'/people'||'/planets'||'/vehicles'||'/favorites')}
-            render={() => <CardContainer data={data} getFavorites={this.getFavorites} /> }    
+          render={() => {
+            return <CardContainer data={data} getFavorites={this.getFavorites} />
+          }}    
         />
-
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);

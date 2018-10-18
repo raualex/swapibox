@@ -7,7 +7,6 @@ import PropTypes from 'prop-types';
 class Nav extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       isActive: ''
     }
@@ -15,9 +14,7 @@ class Nav extends Component {
 
   handleClick = (event) => {
     const { name } = event.target
-    this.setState({
-      isActive: name
-    }, () => this.props.getCards(this.state.isActive))
+    this.props.getCards(name)
   }
 
   render() {

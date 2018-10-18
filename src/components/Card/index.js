@@ -27,7 +27,6 @@ class Card extends Component {
   render() {
     const { favorite } = this.state;
     const { cardData, getFavorites } = this.props
-    console.log(typeof getFavorites)
     const { name } = this.props.cardData;
     const description = Object.keys(cardData).map((spec, index) => {
       if (spec !== 'type' && spec !== 'name' && spec !== 'favorite' && !Array.isArray(cardData[spec])) {
