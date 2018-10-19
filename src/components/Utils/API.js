@@ -69,8 +69,9 @@ export const setLocalStorage = (data, type) => {
 export const getFilms = async (data) => {
   const result = data.map(data => {
     return {
-      title: data.title,
+      title: data.title.toUpperCase(),
       opening_crawl: data.opening_crawl,
+      release_date: data.release_date.slice(0, 4),
       type: 'films'
     }
   })

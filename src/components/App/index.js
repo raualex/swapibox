@@ -4,7 +4,7 @@ import { Route, withRouter } from 'react-router-dom'
 import Header from '../Header';
 import Nav from '../Nav';
 import CardContainer from '../CardContainer';
-import { filterCards, getFavorites } from '../Utils/API';
+import { filterCards } from '../Utils/API';
 import './App.css';
 
 
@@ -12,51 +12,44 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      data: [],
-      favorites: 0
+      films: [],
+      people: [],
+      planets: [],
+      vehicles: [],
+      favorites: []
+    
     }
   }
 
   componentDidMount() {
     let type = this.props.location.pathname.slice(1) || 'films' 
     this.getCards(type);
-    this.getFavorites()
-  }
-
-  updateCards = () => {
-    let type = this.props.location.pathname.slice(1) || 'films' 
-    if (this.state.data.length && type !== this.state.data[0].type) {
-      this.getCards(type)
-    } else {
-      return null;
-    }
+    this.getCards('favorites')
   }
 
   getCards = async (type) =>  {
-    await this.setState({ data: [] });
     const data = await filterCards(type);
     const types = ['films', 'people', 'vehicles', 'planets', 'favorites']
     if (types.includes(type)) {
-      this.setState({ data });
-    } 
-  }
-
-  getFavorites = () => {
-    const favorites = getFavorites().length
-    this.setState({ favorites });
+      this.setState({ [type]: data });
+    } else {
+      const favorites = await filterCards('favorites');
+      this.setState( { favorites } )
+    }
   }
 
   render() {
-    const { data, favorites } = this.state
-    this.updateCards();
+    const { favorites } = this.state
     return (
       <div>
         <Header />
-        <Nav getCards={this.getCards} favorites={favorites} />
+        <Nav getCards={this.getCards} favorites={favorites.length} />
         <Route path={('/'||'/people'||'/planets'||'/vehicles'||'/favorites')}
-          render={() => {
-            return <CardContainer data={data} getFavorites={this.getFavorites} />
-          }}    
+          render={({location}) => {
+            const type =  location.pathname.slice(1) || 'films' 
+            return <CardContainer data={this.state[type]} getCards={this.getCards} />
+            }
+          }    
         />
       </div>
     );

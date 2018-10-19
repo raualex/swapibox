@@ -1,25 +1,23 @@
 import React from 'react';
-import Crawl from 'react-star-wars-crawl';
 import 'react-star-wars-crawl/lib/index.css'
 import './Intro.css';
 import PropTypes from 'prop-types';
 
 const Intro = ({ films }) => {
-  const randomNumber = Math.round(Math.random() * films.length) - 1;
+  const randomNumber = Math.round(Math.random() * films.length);
+  console.log(films[0].release_date)
   return (
-    <div className='films'>
-      {
-        randomNumber >= 0 &&
-      <Crawl
-        containerStyles={{background: 'transparent'}}
-        textContainerStyles={{height: '200px', perspective: '375px'}}
-        titleStyles={{fontSize: '165%'}}
-        fadeStyles={{minHeight: '50vh', top: '-100px'}}
-        title={films[randomNumber].title.toUpperCase()}
-        // subTitle={films[randomNumber].release_date.slice(0, 4)}
-        text={films[randomNumber].opening_crawl}
-      />
-      }
+    <div>
+    <div className="fade"></div>
+      <section className="star-wars">
+        <div className="crawl">
+          <div className="title">
+            <h1>{films[randomNumber].title}</h1>
+            <p>{films[randomNumber].release_date}</p> 
+          </div>
+          <p>{films[randomNumber].opening_crawl}</p>  
+        </div>
+      </section>
     </div>
   )
 }

@@ -1,4 +1,5 @@
 .button-container {
+  position: relative;
   align-items: center;
   background-color: #feda4a;
   border-radius: 35px;
@@ -6,6 +7,7 @@
   height: 70px;
   justify-content: space-around;
   margin: 0 14% 0 14%;
+  z-index: 2;
 }
 
 .navbar {
