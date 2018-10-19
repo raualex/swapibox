@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './Card.css'
 import cardImage from './../Utils/cardImage.js';
-import { filterCards } from '../Utils/API';
 import PropTypes from 'prop-types';
 
 
@@ -18,16 +17,14 @@ class Card extends Component {
     return favorite ? this.setState({ favorite }) : null
   }
 
-  updateFavorites = (name, getFavorites) => {
-    filterCards(name)
+  updateFavorites = (name, getCards) => {
     this.setState( {favorite: !this.state.favorite} )
-    getFavorites()
+    getCards(name)
   }
 
   render() {
     const { favorite } = this.state;
-    const { cardData, getFavorites } = this.props
-    console.log(typeof getFavorites)
+    const { cardData, getCards } = this.props
     const { name } = this.props.cardData;
     const description = Object.keys(cardData).map((spec, index) => {
       if (spec !== 'type' && spec !== 'name' && spec !== 'favorite' && !Array.isArray(cardData[spec])) {
@@ -41,7 +38,7 @@ class Card extends Component {
     return(
       <div className='card'>
         <div className='image-container'>
-          <div onClick={() => this.updateFavorites(name, getFavorites)}
+          <div onClick={() => this.updateFavorites(name, getCards)}
           className='favorite-btn'
           >
             <img className='star' alt='star' src={`${cardImage[favorite]}`}/>
@@ -61,7 +58,7 @@ class Card extends Component {
 
 Card.propTypes = {
   cardData: PropTypes.object.isRequired,
-  getFavorites: PropTypes.func.isRequired
+  getCards: PropTypes.func.isRequired
 }
 
 export default Card;

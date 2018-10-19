@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom'
+
 import './Nav.css';
 import PropTypes from 'prop-types';
 
 class Nav extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       isActive: ''
     }
@@ -13,41 +14,47 @@ class Nav extends Component {
 
   handleClick = (event) => {
     const { name } = event.target
-    this.setState({
-      isActive: name
-    }, () => this.props.getCards(this.state.isActive))
+    this.props.getCards(name)
   }
 
   render() {
-    const {isActive} = this.state
+   
     const { favorites } = this.props
 
     return (
       <div className="button-container navbar">
-        <button 
-          name="people"
-          className={`people-btn ${isActive === 'people' ? 'selected' : ''}`}
-          onClick={this.handleClick}
-        >PEOPLE
-        </button>
-        <button 
-          name="planets"
-          className={`planets-btn ${isActive === 'planets' ? 'selected' : ''}`}
-          onClick={this.handleClick}
-        >PLANETS</button>
-        <button 
-          name="vehicles"
-          className={`vehicles-btn ${isActive === 'vehicles' ? 'selected' : ''}`}
-          onClick={this.handleClick}
-        >VEHICLES</button>
-        <button 
-          name="favorites"
-          className="favorites-btn" 
-          onClick={this.handleClick}>FAVORITES 
-            <span>
-              {favorites}
-            </span>
-        </button>
+        <NavLink to='/people'
+       
+            name="people"
+            className='people-btn'
+            onClick={this.handleClick}
+          >PEOPLE
+     
+        </NavLink>
+        <NavLink to='/planets'
+      
+            name="planets"
+            className='planets-btn'
+            onClick={this.handleClick}
+          >PLANETS
+        </NavLink>
+         <NavLink to='/vehicles'
+       
+            name="vehicles"
+            className='vehicles-btn'
+            onClick={this.handleClick}
+          >VEHICLES
+        </NavLink>
+         <NavLink to='/favorites'
+        
+            name="favorites"
+            className='favorites-btn' 
+            onClick={this.handleClick}>FAVORITES 
+              <span>
+                {favorites}
+              </span>
+     
+        </NavLink>
       </div>
     )
   }

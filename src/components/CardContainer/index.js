@@ -1,17 +1,20 @@
 import React from 'react';
+
+import Loading from '../Loading';
 import Card from '../Card'
 import Intro from '../Intro'
 import './CardContainer.css'
 import PropTypes from 'prop-types';
 
-const CardContainer = ({ data, getFavorites }) => {
-  const allCards = data.map(card => <Card key={card.name} cardData={card} getFavorites={getFavorites}/>)
+const CardContainer = ({ data, getCards }) => {
+  if (!data.length) {      
+    return (<Loading />)
+  }
+  const allCards = data.map(card => <Card key={card.name} cardData={card} getCards={getCards}/>)
   return (
-    <div>
+    <div className='card-container'>
       { data[0].type !== 'films' &&
-      <div className="card-container">
         { allCards }
-      </div>
       }
       { data[0].type === 'films' &&
       <Intro films={data} />
@@ -22,7 +25,7 @@ const CardContainer = ({ data, getFavorites }) => {
 
 CardContainer.propTypes = {
   data: PropTypes.array.isRequired,
-  getFavorites: PropTypes.func.isRequired
+  getCards: PropTypes.func.isRequired
 }
 
 export default CardContainer;
