@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const Intro = ({ films }) => {
   const randomNumber = Math.round(Math.random() * films.length) + 1;
-  console.log(films[randomNumber])
+
   return (
     <div>
     {

@@ -1,5 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom'
+import PropTypes from 'prop-types';
+
 
 import logo from '../Utils/assets/logo.svg'
 
@@ -20,6 +22,10 @@ const Header = ( { getCards }) => {
         </NavLink>
     </div>
   )
+}
+
+Header.propTypes = {
+  getCards: PropTypes.func.isRequired
 }
 
 export default Header; 
