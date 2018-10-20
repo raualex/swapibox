@@ -1,16 +1,9 @@
-/* body {
-  width: 100%;
-  height: 100%;
-
-  overflow: hidden;
-} */
-
 
 .fade {
   position: relative;
   width: 100%;
   min-height: 35vh;
-  top: -50px;
+  top: -150px;
   background-image: linear-gradient(0deg, transparent, black 75%);
   z-index: 1;
 }
@@ -34,7 +27,7 @@
   position: relative;
   top: 99999px;
   transform-origin: 40% 70%;
-  animation: crawl 60s linear;
+  animation: crawl 10s linear;
 }
 
 .crawl > .title {

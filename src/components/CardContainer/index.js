@@ -14,7 +14,9 @@ const CardContainer = ({ data, getCards }) => {
   return (
     <div className='card-container'>
       { data[0].type !== 'films' &&
+        <div className='card-container'>
         { allCards }
+        </div>
       }
       { data[0].type === 'films' &&
       <Intro films={data} />
