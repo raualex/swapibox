@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 const Intro = ({ films }) => {
   const randomNumber = Math.round(Math.random() * films.length);
-  console.log(films[0].release_date)
+  
   return (
     <div>
     <div className="fade"></div>
