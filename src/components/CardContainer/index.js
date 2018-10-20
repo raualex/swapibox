@@ -10,6 +10,7 @@ const CardContainer = ({ data, getCards }) => {
   if (!data.length) {      
     return (<Loading />)
   }
+
   const allCards = data.map(card => <Card key={card.name} cardData={card} getCards={getCards}/>)
   return (
     <div className='card-container'>

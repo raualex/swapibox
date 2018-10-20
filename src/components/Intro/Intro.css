@@ -27,7 +27,7 @@
   position: relative;
   top: 99999px;
   transform-origin: 40% 70%;
-  animation: crawl 10s linear;
+  animation: crawl 60s linear;
 }
 
 .crawl > .title {
