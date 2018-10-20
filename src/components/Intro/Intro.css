@@ -3,7 +3,7 @@
   position: relative;
   width: 100%;
   min-height: 35vh;
-  top: -150px;
+  top: -120px;
   background-image: linear-gradient(0deg, transparent, black 75%);
   z-index: 1;
 }
@@ -27,7 +27,7 @@
   position: relative;
   top: 99999px;
   transform-origin: 40% 70%;
-  animation: crawl 60s linear;
+  animation: crawl 50s linear;
 }
 
 .crawl > .title {
