@@ -28,9 +28,9 @@ class Card extends Component {
     const { name } = this.props.cardData;
     const description = Object.keys(cardData).map((spec, index) => {
       if (spec !== 'type' && spec !== 'name' && spec !== 'favorite' && !Array.isArray(cardData[spec])) {
-        return <li key={Date.now() + index}>{spec}: {cardData[spec]}</li>
+        return <li key={Date.now() + index}><span>{spec}</span> {cardData[spec]}</li>
       } else if (Array.isArray(cardData[spec])) {
-        return <li key={Date.now() + index}>{spec}: {cardData[spec].join(', ')}</li>
+        return <li key={Date.now() + index}><span>{spec}</span> {cardData[spec].join(', ')}</li>
       }
       return '';
     })

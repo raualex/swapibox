@@ -1,6 +1,6 @@
 .card {
   width: 350px;
-  height: 530px;
+  height: 510px;
   border: 5px solid #feda4a;
   margin: 25px;
 }
@@ -19,6 +19,7 @@
 
 .favorite-btn {
   background-color: transparent;
+  cursor: pointer;
   position: absolute;
   height: 50px;
   width: 50px;
@@ -35,20 +36,36 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  padding: 10px;
+  padding: 0 20px 0 20px;
 }
 
 .character-name {
+  font-family: 'Pathway Gothic One', sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 6px;
   text-align: center;
-  margin: 5px 0 0 0;
+  margin: 10px 0 8px 0;
   padding: none;
 }
 
 ul {
   list-style: none;
+  margin-top: 0;
   padding: 0;
 }
+
 li, h4 {
   color: #feda4a;
+  font-size: .85rem;
+
 }
+
+span {
+  font-family: 'Pathway Gothic One', sans-serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
 
