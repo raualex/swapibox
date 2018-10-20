@@ -41,7 +41,7 @@ class App extends Component {
     const { favorites } = this.state
     return (
       <div>
-        <Header />
+        <Header getCards={this.getCards} />
         <Nav getCards={this.getCards} favorites={favorites.length} />
         <Route path={('/'||'/people'||'/planets'||'/vehicles'||'/favorites')}
           render={({location}) => {

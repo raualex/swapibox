@@ -5,7 +5,7 @@ import logo from '../Utils/assets/logo.svg'
 
 import './Header.css';
 
-const Header = () => {
+const Header = ( { getCards }) => {
   
   return (
     <div className="header" >
@@ -15,6 +15,7 @@ const Header = () => {
         className='logo' 
         src={logo}
         alt='Swapi Box Logo'
+        onClick={() => getCards('films')}
         />
         </NavLink>
     </div>
