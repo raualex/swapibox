@@ -1,7 +1,7 @@
 .button-container {
   align-items: center;
   background-color: #feda4a;
-  border-radius: 35px;
+  border-radius: 25px;
   display: flex;
   height: 70px;
   justify-content: space-around;
@@ -33,8 +33,9 @@
 }
 
 .button.end {
-  border: none;
-}
+  border-right: none;
+  background-color: transparent;
+} 
 
 a {
   color: #000000;
