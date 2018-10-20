@@ -1,5 +1,4 @@
 import React from 'react';
-import 'react-star-wars-crawl/lib/index.css'
 import './Intro.css';
 import PropTypes from 'prop-types';
 
