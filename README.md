@@ -2,9 +2,9 @@
 
 SWAPI-BOX is an app the calls an API far, far away (with multiple nested asynchronous calls). Lots of character, planet, people and vehicle data is then cleaned, organized into a simple yet elegant UI with  small, reusable React components.  
 
-![alt tag](https://github.com/gmasterofnone/headcount2.0/blob/master/public/assets/intro.png "Screen-shot of App")
+![alt tag](https://github.com/gmasterofnone/swapibox/blob/master/public/assets/intro.png "Screen-shot of App")
 
-![alt tag](https://github.com/gmasterofnone/headcount2.0/blob/master/public/assets/cards.png "Screen-shot of App")
+![alt tag](https://github.com/gmasterofnone/swapibox/blob/master/public/assets/cards.png "Screen-shot of App")
 
 
 ## Project Goals
@@ -32,6 +32,6 @@ Run `npm start` and visit localhost:3000 in your browser
 ## Wire-Frame
 
 
-![alt tag](https://github.com/gmasterofnone/headcount2.0/blob/master/public/assets/swapi_wire.jpg "Screen-shot of App")
+![alt tag](https://github.com/gmasterofnone/swapibox/blob/master/public/assets/swapi_wire.jpg "Screen-shot of App")
 
 
