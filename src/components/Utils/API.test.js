@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React from 'react';
 import * as APP from './API'
 import {films, planets, people, vehicles } from './mockData'
