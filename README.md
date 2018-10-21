@@ -19,7 +19,7 @@ SWAPI-BOX is an app the calls an API far, far away (with multiple nested asynchr
 
 ## Set Up
 
-Demo the live project : https://gmasterofnone.github.io/headcount2.0/
+Demo the live project : https://gmasterofnone.github.io/swapibox/
 
 OR
 
