@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom'
+import PropTypes from 'prop-types';
 
 import './Nav.css';
-import PropTypes from 'prop-types';
 
 const Nav = ( { favorites, getCards } ) => {
 const favNumber = favorites.length && favorites[0].type !== 'none'
