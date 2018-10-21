@@ -69,3 +69,33 @@ button:focus {
   width: 12px;
 }
 
+@media screen and (max-width: 745px) {
+  .button-container {
+  margin: 0 10% 0 10%;    
+  }
+}
+
+@media screen and (max-width: 652px) {
+  .button-container {
+  margin: 0 6% 0 6%;    
+  }
+}
+
+@media screen and (max-width: 584px) {
+  a {
+    font-size: 1rem;
+  }
+  .button-container {
+    margin: 0 0 0 0;    
+  }
+}
+
+@media screen and (max-width: 372px) {
+  a {
+    font-size: 0.9rem;
+  }
+
+  .fav-cont {
+    margin: 0;
+  }
+}
