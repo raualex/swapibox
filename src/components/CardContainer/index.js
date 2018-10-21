@@ -31,7 +31,7 @@ const CardContainer = ({ data, getCards }) => {
 
 CardContainer.propTypes = {
   data: PropTypes.array.isRequired,
-  getCards: PropTypes.func.isRequired
+  getCards: PropTypes.func
 }
 
 export default CardContainer;

@@ -25,7 +25,7 @@ const Header = ( { getCards }) => {
 }
 
 Header.propTypes = {
-  getCards: PropTypes.func.isRequired
+  getCards: PropTypes.func
 }
 
 export default Header; 

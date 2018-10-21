@@ -27,13 +27,6 @@ describe('API', () => {
     expect(window.fetch).toHaveBeenCalledWith(expected)
   });
 
-  it('should fetch data with different params based on type passed in', async () => {
-    const spy = spyOn(APP, 'fetchData')
-    
-    await APP.filterCards('vehicles')
-    await expect(spy).toHaveBeenCalledWith('vehicles', APP.getVehicles)
-  });
-
   it('should return false if there is no local storage', async () => {    
     const result = APP.checkLocalStorage('people')
     expect(result).toEqual(false)
@@ -54,8 +47,9 @@ describe('API', () => {
   it('should return array of cleaned films', async () => { 
     const cards = [films.results[0]]
     const expected = [{
-      title: films.results[0].title,
+      title: films.results[0].title.toUpperCase(),
       opening_crawl: films.results[0].opening_crawl,
+      release_date: films.results[0].release_date.slice(0, 4),
       type: 'films'
     }]
 

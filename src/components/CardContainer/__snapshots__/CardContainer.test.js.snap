@@ -61,6 +61,7 @@ ShallowWrapper {
         </div>,
         false,
       ],
+      "className": "card-container",
     },
     "ref": null,
     "rendered": Array [
@@ -106,6 +107,7 @@ ShallowWrapper {
                 "name": "Luke",
                 "type": "people",
               },
+              "getCards": undefined,
             },
             "ref": null,
             "rendered": null,
@@ -119,6 +121,7 @@ ShallowWrapper {
               "cardData": Object {
                 "name": "Lando",
               },
+              "getCards": undefined,
             },
             "ref": null,
             "rendered": null,
@@ -132,6 +135,7 @@ ShallowWrapper {
               "cardData": Object {
                 "name": "R2-D2",
               },
+              "getCards": undefined,
             },
             "ref": null,
             "rendered": null,
@@ -179,6 +183,7 @@ ShallowWrapper {
           </div>,
           false,
         ],
+        "className": "card-container",
       },
       "ref": null,
       "rendered": Array [
@@ -224,6 +229,7 @@ ShallowWrapper {
                   "name": "Luke",
                   "type": "people",
                 },
+                "getCards": undefined,
               },
               "ref": null,
               "rendered": null,
@@ -237,6 +243,7 @@ ShallowWrapper {
                 "cardData": Object {
                   "name": "Lando",
                 },
+                "getCards": undefined,
               },
               "ref": null,
               "rendered": null,
@@ -250,6 +257,7 @@ ShallowWrapper {
                 "cardData": Object {
                   "name": "R2-D2",
                 },
+                "getCards": undefined,
               },
               "ref": null,
               "rendered": null,

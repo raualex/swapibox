@@ -58,7 +58,7 @@ class Card extends Component {
 
 Card.propTypes = {
   cardData: PropTypes.object.isRequired,
-  getCards: PropTypes.func.isRequired
+  getCards: PropTypes.func
 }
 
 export default Card;

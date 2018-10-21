@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, withRouter } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 
 import Header from '../Header';
 import Nav from '../Nav';
@@ -21,7 +21,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    let type = this.props.location.pathname.slice(1) || 'films' 
+    let type = window.location.pathname.slice(1) || 'films' 
     this.getCards(type);
     this.getCards('favorites')
   }
@@ -44,8 +44,8 @@ class App extends Component {
         <Header getCards={this.getCards} />
         <Nav getCards={this.getCards} favorites={favorites} />
         <Route path={('/'||'/people'||'/planets'||'/vehicles'||'/favorites')}
-          render={({location}) => {
-            const type = location.pathname.slice(1) || 'films' 
+          render={() => {
+            const type = window.location.pathname.slice(1) || 'films' 
             return <CardContainer data={this.state[type]} getCards={this.getCards} />
             }
           }    
@@ -55,4 +55,4 @@ class App extends Component {
   }
 }
 
-export default withRouter(App);
+export default App;

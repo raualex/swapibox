@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { shallow, mount } from 'enzyme';
 import { people } from '../Utils/mockData'
 import App from '.';
+import { MemoryRouter } from 'react-router-dom';
 
 describe('App', () => {
   let wrapper;
@@ -18,7 +19,11 @@ describe('App', () => {
 
   it('loads with the correct state', () => {
     const expected = {
-      data: []
+      films: [],
+      people: [],
+      planets: [],
+      vehicles: [],
+      favorites: [{'type': 'none'}]
     }
 
     expect(wrapper.state()).toEqual(expected)
@@ -31,9 +36,10 @@ describe('App', () => {
   });
 
   it('fires getCards when mounted', () => {
-    wrapper = mount(<App />);
-    const spy = spyOn(wrapper.instance(), 'getCards')
-    wrapper.instance().getCards()
+    wrapper = mount(<MemoryRouter><App /></MemoryRouter>);
+    let wrapperApp = wrapper.find(App)
+    const spy = spyOn(wrapperApp.instance(), 'getCards')
+    wrapperApp.instance().getCards()
     expect(spy).toHaveBeenCalled();
   });
 

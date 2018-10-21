@@ -14,6 +14,7 @@ const favNumber = favorites.length && favorites[0].type !== 'none'
       <div className='button'>
         <NavLink to='/people'
           name="people"
+          className='people-btn'
           onClick={() => getCards("people")}
         >PEOPLE
         </NavLink>
@@ -21,6 +22,7 @@ const favNumber = favorites.length && favorites[0].type !== 'none'
       <div className='button'>
         <NavLink to='/planets'
           name="planets"
+          className='planets-btn'
           onClick={() => getCards("planets")}
         >PLANETS
         </NavLink>
@@ -28,6 +30,7 @@ const favNumber = favorites.length && favorites[0].type !== 'none'
       <div className='button'>
         <NavLink to='/vehicles'
           name="vehicles"
+          className='vehicles-btn'
           onClick={() => getCards("vehicles")}
         >VEHICLES
         </NavLink>
@@ -35,6 +38,7 @@ const favNumber = favorites.length && favorites[0].type !== 'none'
       <div className='button end'>
         <NavLink to='/favorites'
           name="favorites"
+          className='favorites-btn'
           onClick={() => getCards("favorites")}
         >FAVORITES 
           <div className='fav-cont'>

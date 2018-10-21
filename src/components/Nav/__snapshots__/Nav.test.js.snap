@@ -4,6 +4,7 @@ exports[`Nav should match snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Nav
+    favorites={Array []}
     getCards={[MockFunction]}
   />,
   Symbol(enzyme.__renderer__): Object {
@@ -20,34 +21,67 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <button
-          className="people-btn "
-          name="people"
-          onClick={[Function]}
+        <div
+          className="button"
         >
-          PEOPLE
-        </button>,
-        <button
-          className="planets-btn "
-          name="planets"
-          onClick={[Function]}
+          <NavLink
+            activeClassName="active"
+            aria-current="page"
+            className="people-btn"
+            name="people"
+            onClick={[Function]}
+            to="/people"
+          >
+            PEOPLE
+          </NavLink>
+        </div>,
+        <div
+          className="button"
         >
-          PLANETS
-        </button>,
-        <button
-          className="vehicles-btn "
-          name="vehicles"
-          onClick={[Function]}
+          <NavLink
+            activeClassName="active"
+            aria-current="page"
+            className="planets-btn"
+            name="planets"
+            onClick={[Function]}
+            to="/planets"
+          >
+            PLANETS
+          </NavLink>
+        </div>,
+        <div
+          className="button"
         >
-          VEHICLES
-        </button>,
-        <button
-          className="favorites-btn"
-          name="favorites"
-          onClick={[Function]}
+          <NavLink
+            activeClassName="active"
+            aria-current="page"
+            className="vehicles-btn"
+            name="vehicles"
+            onClick={[Function]}
+            to="/vehicles"
+          >
+            VEHICLES
+          </NavLink>
+        </div>,
+        <div
+          className="button end"
         >
-          FAVORITES
-        </button>,
+          <NavLink
+            activeClassName="active"
+            aria-current="page"
+            className="favorites-btn"
+            name="favorites"
+            onClick={[Function]}
+            to="/favorites"
+          >
+            FAVORITES
+            <div
+              className="fav-cont"
+            >
+              0
+            </div>
+          </NavLink>
+        </div>,
       ],
       "className": "button-container navbar",
     },
@@ -58,56 +92,174 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "PEOPLE",
-          "className": "people-btn ",
-          "name": "people",
-          "onClick": [Function],
+          "children": <NavLink
+            activeClassName="active"
+            aria-current="page"
+            className="people-btn"
+            name="people"
+            onClick={[Function]}
+            to="/people"
+          >
+            PEOPLE
+          </NavLink>,
+          "className": "button",
         },
         "ref": null,
-        "rendered": "PEOPLE",
-        "type": "button",
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "activeClassName": "active",
+            "aria-current": "page",
+            "children": "PEOPLE",
+            "className": "people-btn",
+            "name": "people",
+            "onClick": [Function],
+            "to": "/people",
+          },
+          "ref": null,
+          "rendered": "PEOPLE",
+          "type": [Function],
+        },
+        "type": "div",
       },
       Object {
         "instance": null,
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "PLANETS",
-          "className": "planets-btn ",
-          "name": "planets",
-          "onClick": [Function],
+          "children": <NavLink
+            activeClassName="active"
+            aria-current="page"
+            className="planets-btn"
+            name="planets"
+            onClick={[Function]}
+            to="/planets"
+          >
+            PLANETS
+          </NavLink>,
+          "className": "button",
         },
         "ref": null,
-        "rendered": "PLANETS",
-        "type": "button",
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "activeClassName": "active",
+            "aria-current": "page",
+            "children": "PLANETS",
+            "className": "planets-btn",
+            "name": "planets",
+            "onClick": [Function],
+            "to": "/planets",
+          },
+          "ref": null,
+          "rendered": "PLANETS",
+          "type": [Function],
+        },
+        "type": "div",
       },
       Object {
         "instance": null,
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "VEHICLES",
-          "className": "vehicles-btn ",
-          "name": "vehicles",
-          "onClick": [Function],
+          "children": <NavLink
+            activeClassName="active"
+            aria-current="page"
+            className="vehicles-btn"
+            name="vehicles"
+            onClick={[Function]}
+            to="/vehicles"
+          >
+            VEHICLES
+          </NavLink>,
+          "className": "button",
         },
         "ref": null,
-        "rendered": "VEHICLES",
-        "type": "button",
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "activeClassName": "active",
+            "aria-current": "page",
+            "children": "VEHICLES",
+            "className": "vehicles-btn",
+            "name": "vehicles",
+            "onClick": [Function],
+            "to": "/vehicles",
+          },
+          "ref": null,
+          "rendered": "VEHICLES",
+          "type": [Function],
+        },
+        "type": "div",
       },
       Object {
         "instance": null,
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "FAVORITES",
-          "className": "favorites-btn",
-          "name": "favorites",
-          "onClick": [Function],
+          "children": <NavLink
+            activeClassName="active"
+            aria-current="page"
+            className="favorites-btn"
+            name="favorites"
+            onClick={[Function]}
+            to="/favorites"
+          >
+            FAVORITES
+            <div
+              className="fav-cont"
+            >
+              0
+            </div>
+          </NavLink>,
+          "className": "button end",
         },
         "ref": null,
-        "rendered": "FAVORITES",
-        "type": "button",
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "activeClassName": "active",
+            "aria-current": "page",
+            "children": Array [
+              "FAVORITES",
+              <div
+                className="fav-cont"
+              >
+                0
+              </div>,
+            ],
+            "className": "favorites-btn",
+            "name": "favorites",
+            "onClick": [Function],
+            "to": "/favorites",
+          },
+          "ref": null,
+          "rendered": Array [
+            "FAVORITES",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": 0,
+                "className": "fav-cont",
+              },
+              "ref": null,
+              "rendered": 0,
+              "type": "div",
+            },
+          ],
+          "type": [Function],
+        },
+        "type": "div",
       },
     ],
     "type": "div",
@@ -119,34 +271,67 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <button
-            className="people-btn "
-            name="people"
-            onClick={[Function]}
+          <div
+            className="button"
           >
-            PEOPLE
-          </button>,
-          <button
-            className="planets-btn "
-            name="planets"
-            onClick={[Function]}
+            <NavLink
+              activeClassName="active"
+              aria-current="page"
+              className="people-btn"
+              name="people"
+              onClick={[Function]}
+              to="/people"
+            >
+              PEOPLE
+            </NavLink>
+          </div>,
+          <div
+            className="button"
           >
-            PLANETS
-          </button>,
-          <button
-            className="vehicles-btn "
-            name="vehicles"
-            onClick={[Function]}
+            <NavLink
+              activeClassName="active"
+              aria-current="page"
+              className="planets-btn"
+              name="planets"
+              onClick={[Function]}
+              to="/planets"
+            >
+              PLANETS
+            </NavLink>
+          </div>,
+          <div
+            className="button"
           >
-            VEHICLES
-          </button>,
-          <button
-            className="favorites-btn"
-            name="favorites"
-            onClick={[Function]}
+            <NavLink
+              activeClassName="active"
+              aria-current="page"
+              className="vehicles-btn"
+              name="vehicles"
+              onClick={[Function]}
+              to="/vehicles"
+            >
+              VEHICLES
+            </NavLink>
+          </div>,
+          <div
+            className="button end"
           >
-            FAVORITES
-          </button>,
+            <NavLink
+              activeClassName="active"
+              aria-current="page"
+              className="favorites-btn"
+              name="favorites"
+              onClick={[Function]}
+              to="/favorites"
+            >
+              FAVORITES
+              <div
+                className="fav-cont"
+              >
+                0
+              </div>
+            </NavLink>
+          </div>,
         ],
         "className": "button-container navbar",
       },
@@ -157,56 +342,174 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "PEOPLE",
-            "className": "people-btn ",
-            "name": "people",
-            "onClick": [Function],
+            "children": <NavLink
+              activeClassName="active"
+              aria-current="page"
+              className="people-btn"
+              name="people"
+              onClick={[Function]}
+              to="/people"
+            >
+              PEOPLE
+            </NavLink>,
+            "className": "button",
           },
           "ref": null,
-          "rendered": "PEOPLE",
-          "type": "button",
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "activeClassName": "active",
+              "aria-current": "page",
+              "children": "PEOPLE",
+              "className": "people-btn",
+              "name": "people",
+              "onClick": [Function],
+              "to": "/people",
+            },
+            "ref": null,
+            "rendered": "PEOPLE",
+            "type": [Function],
+          },
+          "type": "div",
         },
         Object {
           "instance": null,
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "PLANETS",
-            "className": "planets-btn ",
-            "name": "planets",
-            "onClick": [Function],
+            "children": <NavLink
+              activeClassName="active"
+              aria-current="page"
+              className="planets-btn"
+              name="planets"
+              onClick={[Function]}
+              to="/planets"
+            >
+              PLANETS
+            </NavLink>,
+            "className": "button",
           },
           "ref": null,
-          "rendered": "PLANETS",
-          "type": "button",
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "activeClassName": "active",
+              "aria-current": "page",
+              "children": "PLANETS",
+              "className": "planets-btn",
+              "name": "planets",
+              "onClick": [Function],
+              "to": "/planets",
+            },
+            "ref": null,
+            "rendered": "PLANETS",
+            "type": [Function],
+          },
+          "type": "div",
         },
         Object {
           "instance": null,
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "VEHICLES",
-            "className": "vehicles-btn ",
-            "name": "vehicles",
-            "onClick": [Function],
+            "children": <NavLink
+              activeClassName="active"
+              aria-current="page"
+              className="vehicles-btn"
+              name="vehicles"
+              onClick={[Function]}
+              to="/vehicles"
+            >
+              VEHICLES
+            </NavLink>,
+            "className": "button",
           },
           "ref": null,
-          "rendered": "VEHICLES",
-          "type": "button",
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "activeClassName": "active",
+              "aria-current": "page",
+              "children": "VEHICLES",
+              "className": "vehicles-btn",
+              "name": "vehicles",
+              "onClick": [Function],
+              "to": "/vehicles",
+            },
+            "ref": null,
+            "rendered": "VEHICLES",
+            "type": [Function],
+          },
+          "type": "div",
         },
         Object {
           "instance": null,
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "FAVORITES",
-            "className": "favorites-btn",
-            "name": "favorites",
-            "onClick": [Function],
+            "children": <NavLink
+              activeClassName="active"
+              aria-current="page"
+              className="favorites-btn"
+              name="favorites"
+              onClick={[Function]}
+              to="/favorites"
+            >
+              FAVORITES
+              <div
+                className="fav-cont"
+              >
+                0
+              </div>
+            </NavLink>,
+            "className": "button end",
           },
           "ref": null,
-          "rendered": "FAVORITES",
-          "type": "button",
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "activeClassName": "active",
+              "aria-current": "page",
+              "children": Array [
+                "FAVORITES",
+                <div
+                  className="fav-cont"
+                >
+                  0
+                </div>,
+              ],
+              "className": "favorites-btn",
+              "name": "favorites",
+              "onClick": [Function],
+              "to": "/favorites",
+            },
+            "ref": null,
+            "rendered": Array [
+              "FAVORITES",
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": 0,
+                  "className": "fav-cont",
+                },
+                "ref": null,
+                "rendered": 0,
+                "type": "div",
+              },
+            ],
+            "type": [Function],
+          },
+          "type": "div",
         },
       ],
       "type": "div",

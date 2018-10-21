@@ -18,11 +18,23 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <Header />,
-        <Nav
+        <Header
           getCards={[Function]}
         />,
-        <Loading />,
+        <Nav
+          favorites={
+            Array [
+              Object {
+                "type": "none",
+              },
+            ]
+          }
+          getCards={[Function]}
+        />,
+        <Route
+          path="/"
+          render={[Function]}
+        />,
       ],
     },
     "ref": null,
@@ -31,15 +43,6 @@ ShallowWrapper {
         "instance": null,
         "key": undefined,
         "nodeType": "function",
-        "props": Object {},
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "class",
         "props": Object {
           "getCards": [Function],
         },
@@ -51,7 +54,26 @@ ShallowWrapper {
         "instance": null,
         "key": undefined,
         "nodeType": "function",
-        "props": Object {},
+        "props": Object {
+          "favorites": Array [
+            Object {
+              "type": "none",
+            },
+          ],
+          "getCards": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "path": "/",
+          "render": [Function],
+        },
         "ref": null,
         "rendered": null,
         "type": [Function],
@@ -66,11 +88,23 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <Header />,
-          <Nav
+          <Header
             getCards={[Function]}
           />,
-          <Loading />,
+          <Nav
+            favorites={
+              Array [
+                Object {
+                  "type": "none",
+                },
+              ]
+            }
+            getCards={[Function]}
+          />,
+          <Route
+            path="/"
+            render={[Function]}
+          />,
         ],
       },
       "ref": null,
@@ -79,15 +113,6 @@ ShallowWrapper {
           "instance": null,
           "key": undefined,
           "nodeType": "function",
-          "props": Object {},
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
           "props": Object {
             "getCards": [Function],
           },
@@ -99,7 +124,26 @@ ShallowWrapper {
           "instance": null,
           "key": undefined,
           "nodeType": "function",
-          "props": Object {},
+          "props": Object {
+            "favorites": Array [
+              Object {
+                "type": "none",
+              },
+            ],
+            "getCards": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "path": "/",
+            "render": [Function],
+          },
           "ref": null,
           "rendered": null,
           "type": [Function],

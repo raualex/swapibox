@@ -23,7 +23,7 @@ describe('Card', () => {
   });
 
   it('renders the correct number of lis', () => {
-    expect(wrapper.find('ul').children().length).toEqual(3)
+    expect(wrapper.find('ul').children().length).toEqual(2)
   });
 
 });
