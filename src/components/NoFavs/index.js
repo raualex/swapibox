@@ -5,7 +5,7 @@ import './NoFavs.css';
 const NoFavs = () => {
   return (
     <div className='card-container'>
-      <h1 className='no-favs'>Test</h1>
+      <h1 className='no-favs'>PlEASE ADD SOME FAVORITES!</h1>
     </div> 
   )
 }
