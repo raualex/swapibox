@@ -5,6 +5,7 @@ import './Nav.css';
 import PropTypes from 'prop-types';
 
 const Nav = ( { favorites, getCards } ) => {
+
   return (
     <div className="button-container navbar">
       <div className='button'>
@@ -34,7 +35,7 @@ const Nav = ( { favorites, getCards } ) => {
           onClick={() => getCards("favorites")}
         >FAVORITES 
           <div className='fav-cont'>
-            {favorites}
+            {favorites.length}
           </div>
         </NavLink>
       </div>

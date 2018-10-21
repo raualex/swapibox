@@ -42,10 +42,10 @@ class App extends Component {
     return (
       <div>
         <Header getCards={this.getCards} />
-        <Nav getCards={this.getCards} favorites={favorites.length} />
+        <Nav getCards={this.getCards} favorites={favorites} />
         <Route path={('/'||'/people'||'/planets'||'/vehicles'||'/favorites')}
           render={({location}) => {
-            const type =  location.pathname.slice(1) || 'films' 
+            const type = location.pathname.slice(1) || 'films' 
             return <CardContainer data={this.state[type]} getCards={this.getCards} />
             }
           }    
