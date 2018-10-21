@@ -4,6 +4,8 @@ import Header from '../Header';
 import Nav from '../Nav';
 import CardContainer from '../CardContainer';
 import { filterCards } from '../Utils/API';
+
+import themeSong from '../Utils/assets/intro.mp3'
 import './App.css';
 
 
@@ -15,7 +17,9 @@ class App extends Component {
       people: [],
       planets: [],
       vehicles: [],
-      favorites: []
+      favorites: [],
+      music: false,
+      audio: new Audio(themeSong)
     }
   }
 
@@ -23,6 +27,12 @@ class App extends Component {
     let type = window.location.pathname.slice(1) || 'films' 
     this.getCards(type);
     this.getCards('favorites')
+    this.toggleMusic()
+  }
+  
+  toggleMusic = async() => {
+    await this.setState( { music: !this.state.music } )
+    this.state.music ? this.state.audio.play() : this.state.audio.pause();
   }
 
   getCards = async (type) =>  {
@@ -37,11 +47,16 @@ class App extends Component {
   }
 
   render() {
-    const { favorites } = this.state
+    const { favorites, music } = this.state
     return (
       <div>
-        <Header getCards={this.getCards} />
-        <Nav getCards={this.getCards} favorites={favorites} />
+        <Header getCards={this.getCards}
+          toggleMusic={this.toggleMusic}
+          music={music}    
+        />
+        <Nav getCards={this.getCards} 
+          favorites={favorites} 
+        />
         <Route path={('/'||'/people'||'/planets'||'/vehicles'||'/favorites')}
           render={() => {
             const type = window.location.pathname.slice(1) || 'films' 

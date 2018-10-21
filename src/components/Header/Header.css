@@ -1,10 +1,24 @@
 .header {
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
   margin: 50px;
+  margin: 50px 14% 50px 14%;
 }
 
 .logo {
   height: 50px; 
+}
+
+.music {
+  position: absolute;
+  background-color: transparent;
+  border: 1px solid #feda4a;
+  border-radius: 3px;
+  color: #feda4a;
+  top: 5px;
+  left: 80%;
+  width: 90px;
+  height: 18px;
+  float: right;
 }

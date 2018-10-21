@@ -7,25 +7,31 @@ import logo from '../Utils/assets/logo.svg'
 
 import './Header.css';
 
-const Header = ( { getCards }) => {
+const Header = ( { getCards, toggleMusic, music }) => {
   
   return (
     <div className="header" >
-    <NavLink to=''
-        >
-        <img 
-        className='logo' 
-        src={logo}
-        alt='Swapi Box Logo'
-        onClick={() => getCards('films')}
-        />
-        </NavLink>
+    <NavLink to=''>
+      <img 
+      className='logo' 
+      src={logo}
+      alt='Swapi Box Logo'
+      onClick={() => getCards('films')}
+    />
+    </NavLink>
+    <button
+      className='music'
+      onClick={() => toggleMusic()}
+    >{music ? 'Pause Music' : 'Play Music'}
+    </button>
     </div>
   )
 }
 
 Header.propTypes = {
-  getCards: PropTypes.func
+  getCards: PropTypes.func,
+  toggleMusic: PropTypes.func,
+  music: PropTypes.bool
 }
 
 export default Header; 
