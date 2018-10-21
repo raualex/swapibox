@@ -6,6 +6,7 @@ import { shallow, mount } from 'enzyme';
 import { people } from '../Utils/mockData'
 import App from '.';
 import { MemoryRouter } from 'react-router-dom';
+import themeSong from '../Utils/assets/intro.mp3'
 
 describe('App', () => {
   let wrapper;
@@ -25,7 +26,9 @@ describe('App', () => {
       people: [],
       planets: [],
       vehicles: [],
-      favorites: [{'type': 'none'}]
+      favorites: [{'type': 'none'}],
+      audio: new Audio(themeSong),
+      music: true
     }
 
     expect(wrapper.state()).toEqual(expected)

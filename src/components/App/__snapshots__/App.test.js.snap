@@ -20,6 +20,8 @@ ShallowWrapper {
       "children": Array [
         <Header
           getCards={[Function]}
+          music={true}
+          toggleMusic={[Function]}
         />,
         <Nav
           favorites={
@@ -45,6 +47,8 @@ ShallowWrapper {
         "nodeType": "function",
         "props": Object {
           "getCards": [Function],
+          "music": true,
+          "toggleMusic": [Function],
         },
         "ref": null,
         "rendered": null,
@@ -90,6 +94,8 @@ ShallowWrapper {
         "children": Array [
           <Header
             getCards={[Function]}
+            music={true}
+            toggleMusic={[Function]}
           />,
           <Nav
             favorites={
@@ -115,6 +121,8 @@ ShallowWrapper {
           "nodeType": "function",
           "props": Object {
             "getCards": [Function],
+            "music": true,
+            "toggleMusic": [Function],
           },
           "ref": null,
           "rendered": null,

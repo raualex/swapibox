@@ -17,62 +17,8 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": <NavLink
-        activeClassName="active"
-        aria-current="page"
-        to=""
-      >
-        <img
-          alt="Swapi Box Logo"
-          className="logo"
-          onClick={[Function]}
-          src="logo.svg"
-        />
-      </NavLink>,
-      "className": "header",
-    },
-    "ref": null,
-    "rendered": Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "function",
-      "props": Object {
-        "activeClassName": "active",
-        "aria-current": "page",
-        "children": <img
-          alt="Swapi Box Logo"
-          className="logo"
-          onClick={[Function]}
-          src="logo.svg"
-        />,
-        "to": "",
-      },
-      "ref": null,
-      "rendered": Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "alt": "Swapi Box Logo",
-          "className": "logo",
-          "onClick": [Function],
-          "src": "logo.svg",
-        },
-        "ref": null,
-        "rendered": null,
-        "type": "img",
-      },
-      "type": [Function],
-    },
-    "type": "div",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": <NavLink
+      "children": Array [
+        <NavLink
           activeClassName="active"
           aria-current="page"
           to=""
@@ -84,10 +30,18 @@ ShallowWrapper {
             src="logo.svg"
           />
         </NavLink>,
-        "className": "header",
-      },
-      "ref": null,
-      "rendered": Object {
+        <button
+          className="music"
+          onClick={[Function]}
+        >
+          Play Music
+        </button>,
+      ],
+      "className": "header",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
         "instance": null,
         "key": undefined,
         "nodeType": "function",
@@ -119,6 +73,98 @@ ShallowWrapper {
         },
         "type": [Function],
       },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Play Music",
+          "className": "music",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": "Play Music",
+        "type": "button",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <NavLink
+            activeClassName="active"
+            aria-current="page"
+            to=""
+          >
+            <img
+              alt="Swapi Box Logo"
+              className="logo"
+              onClick={[Function]}
+              src="logo.svg"
+            />
+          </NavLink>,
+          <button
+            className="music"
+            onClick={[Function]}
+          >
+            Play Music
+          </button>,
+        ],
+        "className": "header",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "activeClassName": "active",
+            "aria-current": "page",
+            "children": <img
+              alt="Swapi Box Logo"
+              className="logo"
+              onClick={[Function]}
+              src="logo.svg"
+            />,
+            "to": "",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "alt": "Swapi Box Logo",
+              "className": "logo",
+              "onClick": [Function],
+              "src": "logo.svg",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "img",
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Play Music",
+            "className": "music",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "Play Music",
+          "type": "button",
+        },
+      ],
       "type": "div",
     },
   ],
