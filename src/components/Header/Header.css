@@ -22,3 +22,13 @@
   height: 18px;
   float: right;
 }
+
+ @media screen and (max-width: 466px) {
+  .header {
+    margin: 35px;
+  }
+
+  .logo {
+    width: 106%;
+  }
+ }
