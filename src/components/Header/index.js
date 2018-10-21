@@ -1,19 +1,31 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom'
+import PropTypes from 'prop-types';
+
+
 import logo from '../Utils/assets/logo.svg'
 
 import './Header.css';
 
-const Header = () => {
+const Header = ( { getCards }) => {
   
   return (
     <div className="header" >
-      <img 
+    <NavLink to=''
+        >
+        <img 
         className='logo' 
         src={logo}
         alt='Swapi Box Logo'
+        onClick={() => getCards('films')}
         />
+        </NavLink>
     </div>
   )
 }
 
-export default Header;
+Header.propTypes = {
+  getCards: PropTypes.func.isRequired
+}
+
+export default Header; 

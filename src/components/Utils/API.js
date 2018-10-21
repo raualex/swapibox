@@ -80,8 +80,8 @@ export const getFilms = async (data) => {
 
 export const getFavorites = () => {
   const cards = JSON.parse(localStorage.getItem('cards')) || []
-  const result = cards.filter(card => card.favorite )
-  return result
+  const result = cards.filter(card => card.favorite ) || [ { type: 'none' } ]
+  return result.length ? result : [ { type: 'none' } ] 
 }
 
 export const getPeople = async data => {

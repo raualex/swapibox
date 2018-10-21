@@ -17,7 +17,6 @@ class App extends Component {
       planets: [],
       vehicles: [],
       favorites: []
-    
     }
   }
 
@@ -42,11 +41,11 @@ class App extends Component {
     const { favorites } = this.state
     return (
       <div>
-        <Header />
-        <Nav getCards={this.getCards} favorites={favorites.length} />
+        <Header getCards={this.getCards} />
+        <Nav getCards={this.getCards} favorites={favorites} />
         <Route path={('/'||'/people'||'/planets'||'/vehicles'||'/favorites')}
           render={({location}) => {
-            const type =  location.pathname.slice(1) || 'films' 
+            const type = location.pathname.slice(1) || 'films' 
             return <CardContainer data={this.state[type]} getCards={this.getCards} />
             }
           }    
