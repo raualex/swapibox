@@ -27,6 +27,17 @@ Run `npm install` from the root directory
 
 Run `npm start` and visit localhost:3000 in your browser
 
+## Contributors:
+
+Alex Rau:
+
+https://github.com/raualex
+
+Graham Munro:
+
+https://github.com/gmasterofnone
+
+
 ## Wire-Frame
 
 
