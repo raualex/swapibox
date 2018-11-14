@@ -18,7 +18,7 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "eslint": "./node_modules/eslint/bin/eslint.js ./src/components/Card/index.js"
+    "eslint": "./node_modules/eslint/bin/eslint.js ./src/components/App/index.js"
   },
   "eslintConfig": {
     "extends": "react-app"
