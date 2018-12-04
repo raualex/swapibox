@@ -57,7 +57,7 @@ class App extends Component {
         <Nav getCards={this.getCards} 
           favorites={favorites} 
         />
-        <Route path={('/'||'/people'||'/planets'||'/vehicles'||'/favorites')}
+        <Route path={('/swapibox'||'/people'||'/planets'||'/vehicles'||'/favorites')}
           render={() => {
             const type = window.location.pathname.slice(1) || 'films' 
             return <CardContainer data={this.state[type]} getCards={this.getCards} />
