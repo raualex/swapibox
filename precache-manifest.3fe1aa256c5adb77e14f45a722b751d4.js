@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/swapibox/static/media/dagobah.37973e60.jpg"
   },
   {
-    "revision": "85b19ee37765580e2b38",
+    "revision": "aab1d8e7b17105b0abb0",
     "url": "/swapibox/static/css/main.e3efb152.chunk.css"
   },
   {
@@ -80,8 +80,8 @@ self.__precacheManifest = [
     "url": "/swapibox/static/media/hoth.4b87d506.jpg"
   },
   {
-    "revision": "85b19ee37765580e2b38",
-    "url": "/swapibox/static/js/main.85b19ee3.chunk.js"
+    "revision": "aab1d8e7b17105b0abb0",
+    "url": "/swapibox/static/js/main.aab1d8e7.chunk.js"
   },
   {
     "revision": "c7062e4f011fa943253fbc34a2089115",
@@ -160,7 +160,7 @@ self.__precacheManifest = [
     "url": "/swapibox/static/media/stars-in-space-moving-fast-background_v1njcikee__F0000.1ee9abc5.png"
   },
   {
-    "revision": "592a77102624ba6aeeba5805852d162d",
+    "revision": "aade6574c5482f403abe973bf33c0876",
     "url": "/swapibox/index.html"
   }
 ];
